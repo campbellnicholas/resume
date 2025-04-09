@@ -6,6 +6,15 @@ Any suggestions are welcome in the issues.
 
 ## Changelog
 
+### 2025 04 09
+* Integrated Tailwind CSS for styling
+* Added custom text selection colors for each theme
+* Enhanced link styling with theme-aware colors and opacity
+* Improved remote badge styling with better typography and spacing
+* Added team and position styling for better content hierarchy
+* Fixed theme color variables to use proper opacity syntax
+* Configured PostCSS for Tailwind processing
+
 ### 2025 04 08
 * Implemented theme system with light, dark, sepia, and high-contrast modes
 * Added theme persistence using localStorage
