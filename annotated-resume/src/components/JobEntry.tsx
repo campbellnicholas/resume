@@ -19,12 +19,12 @@ const JobEntry = memo(({ job }: JobEntryProps) => {
       </p>
       {job.positions.map((position, index) => (
         <div key={index} className="job text-left">
-          <ul>
-            <li className="position">
+          <ul className="flex w-full">
+            <li className="position flex-auto">
               {position.title}
               {position.team && <span className="team">{position.team}</span>}
             </li>
-            <li className="era">
+            <li className="era flex-auto text-right">
               {position.startDate} - {position.endDate}
             </li>
           </ul>

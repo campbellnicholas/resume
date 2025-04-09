@@ -19,8 +19,9 @@
     --modal-background: rgba(0, 0, 0, 0.5);
     --success-color: #4caf50;
     --error-color: #f44336;
-    --link-underline: #155dfc33; /* tw: blue-600 */
-    --link-bg: #51a2ff33; /* tw: blue-400 */
+    --link-underline: rgba(21, 93, 252, 0.2); /* tw: blue-600 */
+    --link-bg: rgba(81, 162, 255, 0.2); /* tw: blue-400 */
+    --remote-bg: theme('colors.orange.800');
   }
 
   .dark {
@@ -31,8 +32,8 @@
     --modal-background: rgba(0, 0, 0, 0.8);
     --success-color: #81c784;
     --error-color: #e57373;
-    --link-underline: #155dfcaa; /* tw: blue-600 */
-    --link-bg: #51a2ffaa; /* tw: blue-400 */
+    --link-underline: rgba(21, 93, 252, 0.7); /* tw: blue-600 */
+    --link-bg: rgba(81, 162, 255, 0.7); /* tw: blue-400 */
   }
 
   .sepia {
@@ -43,8 +44,8 @@
     --modal-background: rgba(67, 52, 34, 0.5);
     --success-color: #8b6b42;
     --error-color: #b85c5c;
-    --link-underline: oklch(66.6% 0.179 58.318); /* tw: amber-600 */
-    --link-bg: oklch(82.8% 0.189 84.429); /* tw: amber-400 */
+    --link-underline: rgba(146, 64, 14, 1); /* tw: amber-600 */
+    --link-bg: rgba(251, 191, 36, 1); /* tw: amber-400 */
   }
 
   .high-contrast {
@@ -55,8 +56,8 @@
     --modal-background: rgba(0, 0, 0, 0.9);
     --success-color: #00ff00;
     --error-color: #ff0000;
-    --link-underline: #155dfcaa; /* tw: blue-600 */
-    --link-bg: #51a2ffaa; /* tw: blue-400 */
+    --link-underline: rgba(21, 93, 252, 0.2); /* tw: blue-600 */
+    --link-bg: rgba(81, 162, 255, 0.2); /* tw: blue-400 */
   }
 }
 
@@ -170,7 +171,14 @@ h1 {
 }
 
 h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 600;
   font-size: 1.1em;
+  margin-top: 0.5em;
 }
 
 .card {
@@ -191,6 +199,10 @@ section, .job {
   margin-bottom: 2.2em;
 }
 
+.job {
+  margin-top: 1em;
+}
+
 section#contact {
   margin-top: 0.5em;
 }
@@ -209,4 +221,28 @@ a {
 
 a:hover {
   background-color: var(--link-bg);
+}
+
+.remote {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  background-color: var(--remote-bg);
+  margin-left: 0.75em;
+  color: #fff;
+  font-size: 0.5em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.position, .era {
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+.team {
+  display: block;
+  font-size: 0.75em;
+  font-style: normal;
 }
