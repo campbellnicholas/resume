@@ -33,6 +33,7 @@ function App() {
             id="professional-summary" 
             aria-label="Professional Summary"
             role="region"
+            className="text-left"
           >
             <h2>Professional Summary</h2>
             <p>{resumeData.summary}</p>
@@ -42,6 +43,7 @@ function App() {
             id="work-experience" 
             aria-label="Work Experience"
             role="region"
+            className="text-left"
           >
             <h2>Work Experience</h2>
             <div role="list">
@@ -55,6 +57,7 @@ function App() {
             id="education" 
             aria-label="Education"
             role="region"
+            className="text-left"
           >
             <h2>Education</h2>
             <div role="list">
@@ -68,6 +71,7 @@ function App() {
             id="competencies" 
             aria-label="Core Competencies"
             role="region"
+            className="text-left"
           >
             <h2>Core Competencies</h2>
             <ul 
@@ -96,6 +100,7 @@ function App() {
             id="technologies" 
             aria-label="Technologies"
             role="region"
+            className="text-left"
           >
             <h2>Technologies</h2>
             <ul role="list" aria-label="List of technologies">
@@ -120,6 +125,7 @@ function App() {
             id="publications" 
             aria-label="Publications"
             role="region"
+            className="text-left"
           >
             <h2>Publications</h2>
             <ul role="list" aria-label="List of publications">

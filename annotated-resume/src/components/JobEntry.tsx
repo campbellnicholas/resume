@@ -18,7 +18,7 @@ const JobEntry = memo(({ job }: JobEntryProps) => {
         {job.isRemote && <span className="remote">Remote</span>}
       </p>
       {job.positions.map((position, index) => (
-        <div key={index} className="job">
+        <div key={index} className="job text-left">
           <ul>
             <li className="position">
               {position.title}
@@ -28,9 +28,9 @@ const JobEntry = memo(({ job }: JobEntryProps) => {
               {position.startDate} - {position.endDate}
             </li>
           </ul>
-          <ul>
+          <ul className="responsibilities">
             {position.responsibilities.map((responsibility, idx) => (
-              <li key={idx}>{responsibility}</li>
+              <li key={idx} className="list-disc">{responsibility}</li>
             ))}
           </ul>
         </div>

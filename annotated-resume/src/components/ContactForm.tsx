@@ -136,7 +136,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };

@@ -24,7 +24,7 @@ export const themeRegistry: ThemeRegistry = {
     description: 'Warm, eye-friendly theme',
   },
   highContrast: {
-    name: 'High Contrast',
+    name: 'Contrast',
     description: 'High contrast theme for improved readability',
   },
   system: {

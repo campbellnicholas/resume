@@ -4,7 +4,7 @@ import { DegreeType, JobType, TechnologyCategory, CompetencyCategory, Publicatio
 export const resumeData: ResumeData = {
   name: 'Nick Campbell',
   contact: {
-    city: 'Greater Los Angeles Area',
+    city: 'Los Angeles, CA, USA',
     linkedIn: {
       url: 'https://linkedin.com/in/campbell-nick',
       displayText: 'LinkedIn Profile'
