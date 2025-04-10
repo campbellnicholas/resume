@@ -155,7 +155,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -250,4 +249,13 @@ a:hover {
 .modal-content button[type="submit"] {
   padding: 0.5em 1em;
   background-color: var(--link-bg);
+}
+
+.side-panel {
+  @apply fixed top-0 right-0 h-full w-96 bg-theme-bg border-l border-theme-border 
+         overflow-y-auto z-[100] p-4 shadow-lg;
+}
+
+.side-panel-content {
+  @apply text-theme-text;
 }

@@ -1,11 +1,36 @@
-import { DegreeType, JobType, PublicationType, TechnologyCategory, CompetencyCategory } from './enums';
+import { DegreeType, PublicationType, TechnologyCategory, CompetencyCategory } from './enums';
+
+export interface Annotation {
+  id: string;
+  title: string;
+  content: string | React.ReactNode;
+}
+
+export interface AnnotatedText {
+  text: string;
+  annotation?: {
+    id: string;
+    title: string;
+    content: string;
+    linkedText?: string;
+  };
+}
+
+export interface Responsibility {
+  text: string;
+  annotation?: {
+    id: string;
+    title: string;
+    content: string;
+    linkedText?: string;
+  };
+}
 
 export interface Job {
   id: string;
   company: string;
   location: string;
-  isRemote?: boolean;
-  type?: JobType;
+  remote: boolean;
   positions: Position[];
 }
 
@@ -23,7 +48,7 @@ export interface Position {
   team?: string;
   startDate: string;
   endDate: string;
-  responsibilities: string[];
+  responsibilities: Responsibility[];
 }
 
 export interface Publication {
@@ -33,6 +58,12 @@ export interface Publication {
   description: string;
   date?: string;
   publisher?: string;
+  annotation?: {
+    id: string;
+    title: string;
+    content: string;
+    linkedText?: string;
+  };
 }
 
 export interface Technology {
@@ -45,6 +76,12 @@ export interface Competency {
   name: string;
   category: CompetencyCategory;
   description?: string;
+  annotation?: {
+    id: string;
+    title: string;
+    content: string;
+    linkedText?: string;
+  };
 }
 
 export interface ContactInfo {
@@ -61,7 +98,7 @@ export interface ContactInfo {
 export interface ResumeData {
   name: string;
   contact: ContactInfo;
-  summary: string;
+  summary: AnnotatedText;
   experience: Job[];
   education: School[];
   competencies: Competency[];

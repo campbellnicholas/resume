@@ -6,6 +6,9 @@ Any suggestions are welcome in the issues.
 
 ## Changelog
 
+### 2025 04 10
+* Added annotation text infrastructure
+
 ### 2025 04 09
 * Integrated Tailwind CSS for styling
 * Added custom text selection colors for each theme
