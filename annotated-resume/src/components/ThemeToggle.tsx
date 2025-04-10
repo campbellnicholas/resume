@@ -27,7 +27,7 @@ const ThemeToggle = memo(() => {
   };
 
   return (
-    <div className="theme-toggle-container" ref={dropdownRef}>
+    <div className="theme-toggle-container flex items-center gap-2" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="theme-toggle-button"
@@ -39,6 +39,14 @@ const ThemeToggle = memo(() => {
          theme === 'dark' ? '🌙' : 
          theme === 'sepia' ? '📜' : 
          theme === 'high-contrast' ? '⚡' : '☀️'}
+      </button>
+      
+      <button
+        onClick={() => window.print()}
+        className="theme-toggle-button print:hidden"
+        aria-label="Print resume"
+      >
+        🖨️
       </button>
       
       {isOpen && (

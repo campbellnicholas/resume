@@ -11,33 +11,35 @@ export const resumeData: ResumeData = {
     }
   },
   summary: {
-    text: 'Engineering Manager with extensive experience leading cross-platform development teams in fast-paced e-commerce environments. Proven ability to drive process improvements, foster relationships, and demonstrate empathetic leadership while delivering high-quality software. Skilled in software engineering and dedicated to building inclusive, high-performing teams.',
-    annotation: {
-      id: 'summary-leadership',
-      title: 'Leadership Philosophy',
-      content: `
-# Leadership Philosophy
+    text: 'Engineering manager with extensive experience leading cross-platform development teams in fast-paced e-commerce environments. Proven ability to drive process improvements, foster relationships, and demonstrate empathetic leadership while delivering high-quality software. Skilled in software engineering and dedicated to building inclusive, high-performing teams.',
+    annotations: [
+      {
+        id: 'empathetic-leadership',
+        title: '"empathetic leadership"',
+        content: `
+# What even is empathetic leadership?
 
-## Core Principles
-- Empathetic leadership
-- Continuous improvement
-- Inclusive team building
-- High-quality delivery
+I won't say that "empathatic leadership" is overused or misused but it can be vague. It can also find itself on resumes for people who are simply nice but don't necessarily use it as part of their leadership style.
 
-## Key Strengths
-- Cross-platform team management
-- Process optimization
-- Relationship building
-- Technical excellence
+The "empathetic" part is hopefully easy. Recognizing how the people around you feel and understanding what that feeling means is important to being a human. Otherwise, we'd all be raging sociopaths that see our coworkers at numbers or minions or proverbial cogs in the machine. Understanding you're around a bunch of people that also have agency just like you is important to the human condition and makes the people that work around you also feel unapologetically human.
 
-## Impact
-- Successfully led teams in fast-paced e-commerce environments
-- Drove significant process improvements
-- Built and maintained high-performing, inclusive teams
-- Delivered high-quality software solutions
+The leadership part is what you do with that empathy. I am a nice person, for sure. I've been told I am such by many reputable sources. But "empathetic leadership" is being kind while also being clear. It's about understanding what people are going through and knowing how others are capable of contributing and where others want to be in their careers/lives. That requires a lot of listening, a lot of processing, and a lot of honesty. But, you know, without being an absolute jerk about it.
+
+Empathetic leadership is a way of creating teams and environments that are inclusive, supportive, and productive. It makes people feel like human beings so they can be their best. You get rid of the cruft of micromanagement and toxicity and all the things you have to do to maintain that. You have happier people on the team. And you get a lot of cool stuff done. You have to work to make money. Make work feel less painful for it.
 `,
-      linkedText: 'empathetic leadership'
-    }
+        linkedText: 'empathetic leadership'
+      },
+      {
+        id: 'professional-profile-ugh',
+        title: '"Engineering manager"',
+        content: `# Ugh, this is so dry.
+
+Most people that I talk to that are resume experts say that I need to have a stodgy persona in the resume because ATS/AI/headless resume scanners don't have the nuance to understand dynamic sentence structures. That makes sense. This professional summary, though, while packed with phrases that describe what I do, is much more bland than I would like it to be.
+
+What is it that I do? I like to lead teams of puzzle-solving engineers to have a humane way of life while also producing high-quality software. That's really it. Also people like to partner with me becaue (1) I'm not a jerk and (2) I like to solve their problems, too.`,
+        linkedText: 'Engineering manager'
+      }
+    ]
   },
   experience: [
     {
@@ -59,28 +61,26 @@ export const resumeData: ResumeData = {
               text: 'Drove the successful launch of MVPs on many projects including item substitution workflows (reduced order cancellations by 5% and contacts to customer service by 10%) and adding PIN verification (saved $6M annually).',
               annotation: {
                 id: 'grubhub-pin-verification',
-                title: 'PIN Verification Project',
-                content: `
-# PIN Verification Implementation
-Led the implementation of a PIN verification system for high-risk orders to reduce fraud and improve delivery security.
+                title: 'PIN verification',
+                content: `## PIN Verification: What is it?
+You've seen this before not only in this app but other apps where handshakes (metaphorical or literal) help to thwart ne'er-do-wells and to avoid well-meaning mistakes. The problem was that food-eaters wanted to eat their food but couldn't find it even though it'd been marked as delivered. So we added a process for verifying that the food-eater and the deliverer were both at the right place.
 
-## Key Features
-- Real-time PIN generation and validation
-- Secure PIN delivery via SMS
-- Fallback mechanisms for failed deliveries
-- Analytics dashboard for fraud tracking
+![Food Bandit Thwarted!](./assets/grubhub-pin-verification.webp)
 
-## Technical Implementation
-- Built using React Native for cross-platform support
-- Integrated with Twilio for SMS delivery
-- Implemented rate limiting and security measures
-- Created automated testing suite
+### Okay. But what is it?
+Oh, right. So we added a PIN that the food-eater could see and only them. Then the deliverer had to ask the food-eater for the PIN in order to complete the delivery (so they could move on to the next delivery). Hopefully, this ensured that the delivery happened correctly and food-eaters could chow down.
 
-## Impact
-- Reduced fraudulent orders by 75%
-- Saved $6M annually in fraud prevention
-- Improved delivery success rate by 15%
-- Enhanced customer trust and satisfaction
+### What was your part?
+Thanks so much for asking. Our team was responsible for showing the food-eater the PIN in the post purchase/order tracking screen. We decoupled it from the rest of the PIN generation process by only attempting to show the workflow if we had the information. This made it a lot easier to roll out indpendently and allowed to finish very quickly. We also added it to notifications, which we were also responsible for, and into order details to make sure it was in as many places as possible.
+
+### Did people still miss it?
+All the time. Just, like, all the time. It was in three different very accessible places but people still missed it. Adding it in more places (like Live Activities on iOS) was one move. Another would be to make it stand out more in the very contested space on that order tracking screen. But more people saw it than missed it and it helped.
+
+### So it did work?
+Yeah! We dropped the number of contacts to customer service for missed deliveries which was the goal and that saved $6MM annually. 
+
+### Do you have more implementation details?
+Oh, I can get into the weeds. Message me about it and we can talk as much as you want as long as I don't cross any lines into Food Bandits getting an inside edge.
 `,
                 linkedText: 'PIN verification'
               }

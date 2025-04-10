@@ -34,7 +34,7 @@ const AnnotationPanel = memo(({ isOpen, onClose, title, content }: AnnotationPan
     >
       <div className="p-6 h-full flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h2 id="annotation-title" className="text-xl font-semibold text-theme-text">
+          <h2 id="annotation-title" className="font-semibold text-theme-text">
             {title}
           </h2>
           <button

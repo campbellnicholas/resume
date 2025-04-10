@@ -18,25 +18,30 @@ interface JobEntryProps {
 const JobEntry = memo(({ job }: JobEntryProps) => {
   return (
     <div className="mb-8">
-      <h3 className="text-xl font-semibold mb-2">
-        {job.company} - {job.location} {job.remote && '(Remote)'}
-      </h3>
+      <div className="company mb-2">
+        <h3 className="font-semibold">
+          {job.company}
+        </h3>
+        <p>{job.location} {job.remote && <span className="isRemote">Remote</span>}</p>
+      </div>
+      
       {job.positions.map((position, index) => (
         <div key={index} className="mb-4">
-          <h4 className="text-lg font-medium mb-2">
-            {position.title}
-            {position.team && ` - ${position.team}`}
-          </h4>
-          <p className="text-sm text-theme-text mb-2">
-            {position.startDate} - {position.endDate}
-          </p>
+          <div className="positionEra flex">
+            <div className="position flex-1">
+              <h4 className="italic">{position.title} </h4>
+              {position.team && <span className="positionTeam text-sm italic">{position.team}</span>}
+            </div>
+            <p className="era flex-1 text-right">
+              {position.startDate} - {position.endDate}
+            </p>
+          </div>
           <ul className="list-disc list-inside space-y-2">
             {position.responsibilities.map((responsibility, idx) => (
               <li key={idx}>
                 <AnnotatedText
-                  id={responsibility.annotation?.id || `responsibility-${job.id}-${index}-${idx}`}
                   text={responsibility.text}
-                  annotation={responsibility.annotation}
+                  annotations={responsibility.annotation ? [responsibility.annotation] : undefined}
                 />
               </li>
             ))}

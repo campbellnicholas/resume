@@ -8,12 +8,12 @@ export interface Annotation {
 
 export interface AnnotatedText {
   text: string;
-  annotation?: {
+  annotations?: Array<{
     id: string;
     title: string;
     content: string;
-    linkedText?: string;
-  };
+    linkedText: string;
+  }>;
 }
 
 export interface Responsibility {

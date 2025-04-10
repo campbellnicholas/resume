@@ -8,6 +8,7 @@ Any suggestions are welcome in the issues.
 
 ### 2025 04 10
 * Added annotation text infrastructure
+* Added print version
 
 ### 2025 04 09
 * Integrated Tailwind CSS for styling

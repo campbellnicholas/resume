@@ -162,7 +162,7 @@
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   text-align: center;
   width: 100%;
   border-bottom: 1px solid var(--border-color);
@@ -170,14 +170,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 600;
 }
 
 h3 {
   font-weight: 600;
-  font-size: 1.1em;
+  font-size: 1em;
   margin-top: 0.5em;
+}
+
+p, li {
+  font-size: 0.9167em;
 }
 
 .card {
@@ -222,7 +226,7 @@ a:hover {
   background-color: var(--link-bg);
 }
 
-.remote {
+.isRemote {
   display: inline-block;
   padding: 0.2em 0.5em;
   border-radius: 0.25em;
@@ -258,4 +262,59 @@ a:hover {
 
 .side-panel-content {
   @apply text-theme-text;
+}
+
+.annotation-linked-text {
+  border-bottom: 3px dotted var(--link-underline);
+}
+
+.annotation-linked-text:hover {
+  border-bottom: none;
+}
+
+/* Print-specific styles */
+@media print {
+  /* Hide annotation buttons and side panels */
+  .text-theme-hover {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  /* Hide theme toggle */
+  .theme-toggle {
+    display: none !important;
+  }
+
+  /* Hide contact form */
+  .modal-overlay,
+  .modal-content {
+    display: none !important;
+  }
+
+  /* Optimize page breaks */
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure proper margins */
+  @page {
+    margin: 1cm;
+  }
+
+  /* Optimize text colors for printing */
+  body {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Ensure links are visible in print */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  /* Hide annotation side panels */
+  [role="dialog"] {
+    display: none !important;
+  }
 }

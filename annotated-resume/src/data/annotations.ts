@@ -1,4 +1,4 @@
-import { Annotation } from '../types/annotation';
+import { Annotation } from '../types/resume';
 
 export const annotations: Annotation[] = [
   {

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Annotation as AnnotationType } from '../types/annotation';
+import { Annotation as AnnotationType } from '../types/resume';
 import MarkdownContent from './MarkdownContent';
 
 /**
@@ -59,7 +59,11 @@ const Annotation = memo(({ annotation, onClose }: AnnotationProps) => {
           </button>
         </div>
         <div className="prose prose-theme-text max-w-none">
-          <MarkdownContent content={annotation.content} />
+          {typeof annotation.content === 'string' ? (
+            <MarkdownContent content={annotation.content} />
+          ) : (
+            annotation.content
+          )}
         </div>
       </div>
     </div>
