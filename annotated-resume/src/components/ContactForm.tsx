@@ -151,15 +151,16 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
       aria-labelledby="contact-form-title"
       ref={modalRef}
     >
-      <div className="modal-content">
+      <div className="modal-content text-left flex flex-col justify-center relative">
         <h2 id="contact-form-title">Contact Me</h2>
+        <p className="text-sm my-2">I would give you my email but I don't know you (probably) so leave a message.</p>
         <button
           ref={closeButtonRef}
-          className="close-button"
+          className="close-button absolute right-4 top-4 text-2xl"
           onClick={onClose}
           aria-label="Close contact form"
         >
-          ×
+          &times;
         </button>
         <form 
           onSubmit={handleSubmit}
@@ -253,8 +254,8 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                 )}
               </div>
 
-              <div className="honeypot-field">
-                <label htmlFor="_gotcha">Leave this field empty</label>
+              <div className="sr-only">
+                <label htmlFor="_gotcha">Don't fill this out if you're human</label>
                 <input
                   type="text"
                   id="_gotcha"
@@ -266,14 +267,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                 />
               </div>
 
-              <div className="form-actions">
-                <button 
-                  type="button" 
-                  onClick={onClose}
-                  disabled={status === 'submitting'}
-                >
-                  Cancel
-                </button>
+              <div className="form-actions flex justify-center">
                 <button 
                   type="submit" 
                   disabled={status === 'submitting'}

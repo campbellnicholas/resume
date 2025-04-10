@@ -124,8 +124,7 @@ export const resumeData: ResumeData = {
   competencies: [
     {
       name: 'Engineering leadership',
-      category: CompetencyCategory.LEADERSHIP,
-      description: 'Leading and mentoring engineering teams'
+      category: CompetencyCategory.LEADERSHIP
     },
     {
       name: 'Coaching',
@@ -184,27 +183,22 @@ export const resumeData: ResumeData = {
     {
       name: 'JavaScript, CSS, TypeScript, Swift, Kotlin, Java',
       category: TechnologyCategory.LANGUAGES,
-      proficiency: 'Expert'
     },
     {
       name: 'React, Contentful, GitHub Actions, Jenkins',
       category: TechnologyCategory.FRAMEWORKS,
-      proficiency: 'Expert'
     },
     {
       name: 'AWS, GCP',
       category: TechnologyCategory.CLOUD,
-      proficiency: 'Advanced'
     },
     {
       name: 'Figma, Adobe Creative Suite',
       category: TechnologyCategory.TOOLS,
-      proficiency: 'Intermediate'
     },
     {
       name: 'Cursor, Gemini, Claude, Firefly',
       category: TechnologyCategory.AI,
-      proficiency: 'Advanced'
     }
   ],
   publications: [

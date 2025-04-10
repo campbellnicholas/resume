@@ -25,7 +25,7 @@ export enum TechnologyCategory {
   PLATFORMS = 'Platforms',
   DATABASES = 'Databases',
   CLOUD = 'Cloud',
-  AI = 'AI'
+  AI = 'AI Tools'
 }
 
 export enum CompetencyCategory {

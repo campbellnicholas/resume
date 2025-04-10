@@ -75,7 +75,7 @@ function App() {
           >
             <h2>Core Competencies</h2>
             <ul 
-              className="competencies-list"
+              className="competencies-list columns-3"
               role="list"
               aria-label="List of competencies"
             >
@@ -87,7 +87,7 @@ function App() {
                 >
                   {competency.name}
                   {competency.description && (
-                    <span className="visually-hidden">
+                    <span className="sr-only">
                       {competency.description}
                     </span>
                   )}
@@ -110,9 +110,10 @@ function App() {
                   role="listitem"
                   aria-label={`${technology.name} - ${technology.proficiency || 'proficient'}`}
                 >
+                  <strong>{technology.category}: </strong>
                   {technology.name}
                   {technology.proficiency && (
-                    <span className="visually-hidden">
+                    <span className="sr-only">
                       Proficiency level: {technology.proficiency}
                     </span>
                   )}

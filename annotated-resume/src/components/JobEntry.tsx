@@ -28,7 +28,7 @@ const JobEntry = memo(({ job }: JobEntryProps) => {
               {position.startDate} - {position.endDate}
             </li>
           </ul>
-          <ul className="responsibilities">
+          <ul className="responsibilities ml-8">
             {position.responsibilities.map((responsibility, idx) => (
               <li key={idx} className="list-disc">{responsibility}</li>
             ))}

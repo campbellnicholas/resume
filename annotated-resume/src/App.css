@@ -246,3 +246,8 @@ a:hover {
   font-size: 0.75em;
   font-style: normal;
 }
+
+.modal-content button[type="submit"] {
+  padding: 0.5em 1em;
+  background-color: var(--link-bg);
+}
