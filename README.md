@@ -14,6 +14,8 @@ Any suggestions are welcome in the issues.
 * Added team and position styling for better content hierarchy
 * Fixed theme color variables to use proper opacity syntax
 * Configured PostCSS for Tailwind processing
+* Updated style for Core Competencies and Technologies sections
+* Updated style for contact form
 
 ### 2025 04 08
 * Implemented theme system with light, dark, sepia, and high-contrast modes
