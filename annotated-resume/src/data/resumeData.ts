@@ -65,7 +65,7 @@ What is it that I do? I like to lead teams of puzzle-solving engineers to have a
                 content: `## PIN Verification: What is it?
 You've seen this before not only in this app but other apps where handshakes (metaphorical or literal) help to thwart ne'er-do-wells and to avoid well-meaning mistakes. The problem was that food-eaters wanted to eat their food but couldn't find it even though it'd been marked as delivered. So we added a process for verifying that the food-eater and the deliverer were both at the right place.
 
-![Food Bandit Thwarted!](./assets/grubhub-pin-verification.webp)
+![Food Bandit Thwarted!](images/grubhub-pin-verification.webp)
 
 ### Okay. But what is it?
 Oh, right. So we added a PIN that the food-eater could see and only them. Then the deliverer had to ask the food-eater for the PIN in order to complete the delivery (so they could move on to the next delivery). Hopefully, this ensured that the delivery happened correctly and food-eaters could chow down.

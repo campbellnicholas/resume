@@ -265,11 +265,12 @@ a:hover {
 }
 
 .annotation-linked-text {
-  border-bottom: 3px dotted var(--link-underline);
+  border-bottom: 2px dotted var(--link-underline);
+  background-color: var(--link-bg);
 }
 
 .annotation-linked-text:hover {
-  border-bottom: none;
+  border-bottom-color: var(--link-bg);
 }
 
 /* Print-specific styles */

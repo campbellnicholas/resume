@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import grubhubPinImage from '../assets/grubhub-pin-verification.webp';
 
 /**
  * Props for the MarkdownContent component
@@ -60,18 +59,12 @@ const MarkdownContent = memo(({ content }: MarkdownContentProps) => {
           </pre>
         ),
         img: ({ src, alt }) => {
-          if (src === './assets/grubhub-pin-verification.webp') {
-            return (
-              <img 
-                src={grubhubPinImage} 
-                alt={alt || 'PIN Verification Flow'} 
-                className="my-4 rounded-lg shadow-lg max-w-full h-auto border-2 border-black"
-              />
-            );
-          }
+          if (!src) return null;
+          // Remove the leading ./ if present
+          const cleanSrc = src.replace(/^\.\//, '');
           return (
             <img 
-              src={src} 
+              src={`/${cleanSrc}`}
               alt={alt || ''} 
               className="my-4 rounded-lg shadow-lg max-w-full h-auto border-2 border-black"
             />

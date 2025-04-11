@@ -89,7 +89,7 @@ const AnnotatedText = memo(({ text, annotation, annotations }: AnnotatedTextProp
           <button
             key={index}
             onClick={() => handleAnnotationClick(part.annotationId)}
-            className={`text-theme-hover hover:underline focus:outline-none focus:ring-2 focus:ring-theme-hover focus:ring-offset-2 focus:ring-offset-theme-bg ${
+            className={`annotation-linked-text focus:outline-none focus:ring-2 focus:ring-theme-hover focus:ring-offset-2 focus:ring-offset-theme-bg ${
               isOpen ? 'font-semibold' : ''
             }`}
             aria-expanded={isOpen}
@@ -121,7 +121,7 @@ const AnnotatedText = memo(({ text, annotation, annotations }: AnnotatedTextProp
                   className="text-theme-text hover:text-theme-hover focus:outline-none focus:ring-2 focus:ring-theme-hover focus:ring-offset-2 focus:ring-offset-theme-bg"
                   aria-label="Close annotation"
                 >
-                  ×
+                  &times;
                 </button>
               </div>
               <MarkdownContent content={annotation.content} />
