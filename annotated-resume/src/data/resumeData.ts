@@ -1,20 +1,21 @@
 import { ResumeData } from '../types/resume';
 import { DegreeType, PublicationType, TechnologyCategory, CompetencyCategory } from '../types/enums';
+import { createID } from '../types/resume';
 
 export const resumeData: ResumeData = {
   name: 'Nick Campbell',
   contact: {
-    city: 'Los Angeles, CA, USA',
+    city: 'Los Angeles, CA',
     linkedIn: {
-      url: 'https://linkedin.com/in/campbell-nick',
-      displayText: 'LinkedIn Profile'
+      url: 'https://www.linkedin.com/in/campbell-nick/',
+      displayText: 'LinkedIn'
     }
   },
   summary: {
     text: 'Engineering manager with extensive experience leading cross-platform development teams in fast-paced e-commerce environments. Proven ability to drive process improvements, foster relationships, and demonstrate empathetic leadership while delivering high-quality software. Skilled in software engineering and dedicated to building inclusive, high-performing teams.',
     annotations: [
       {
-        id: 'empathetic-leadership',
+        id: createID('empathetic-leadership'),
         title: '"empathetic leadership"',
         content: `
 # What even is empathetic leadership?
@@ -30,20 +31,20 @@ Empathetic leadership is a way of creating teams and environments that are inclu
         linkedText: 'empathetic leadership'
       },
       {
-        id: 'professional-profile-ugh',
+        id: createID('professional-profile-ugh'),
         title: '"Engineering manager"',
         content: `# Ugh, this is so dry.
 
 Most people that I talk to that are resume experts say that I need to have a stodgy persona in the resume because ATS/AI/headless resume scanners don't have the nuance to understand dynamic sentence structures. That makes sense. This professional summary, though, while packed with phrases that describe what I do, is much more bland than I would like it to be.
 
-What is it that I do? I like to lead teams of puzzle-solving engineers to have a humane way of life while also producing high-quality software. That's really it. Also people like to partner with me becaue (1) I'm not a jerk and (2) I like to solve their problems, too.`,
+What is it that I do? I like to lead teams of puzzle-solving engineers to have a humane way of life while also producing high-quality software. That's really it. Also people like to partner with me because (1) I'm not a jerk and (2) I like to solve their problems, too.`,
         linkedText: 'Engineering manager'
       }
     ]
   },
   experience: [
     {
-      id: 'grubhub',
+      id: createID('grubhub'),
       company: 'Grubhub',
       location: 'Chicago, IL',
       remote: true,
@@ -55,12 +56,22 @@ What is it that I do? I like to lead teams of puzzle-solving engineers to have a
           endDate: '03/2025',
           responsibilities: [
             {
-              text: 'Managed a cross-functional engineering team (Android, iOS, Web) of 10-12 engineers in the resiliency and enhancement of the order tracking feature for Grubhub and seamless consumer-facing applications written in Kotlin, Swift, and React/TypeScript.'
+              text: 'Managed a cross-functional engineering team (Android, iOS, Web) of 10-12 engineers in the resiliency and enhancement of the order tracking feature for Grubhub and seamless consumer-facing applications written in Kotlin, Swift, and React/TypeScript.',
+              annotation: {
+                id: createID('grubub-engineer-number'),
+                title: '10-12 engineers',
+                content: `## Are you not sure about the number of engineers on your team? Were some of them ghosts?
+
+Were some of them ghosts? No. At least I don't think so. BUT NOW I'M NOT SURE.
+
+This is more about the fluctuation of the team members as we assumed and shed responsibilities during various restructures. Over the course of three and a half years, we usually had somewhere between 10 and 12 engineers. You might call that 11 on average. At least 10, rarely more than 12. I managed a large team.`,
+                linkedText: '10-12 engineers'
+              }
             },
             {
               text: 'Drove the successful launch of MVPs on many projects including item substitution workflows (reduced order cancellations by 5% and contacts to customer service by 10%) and adding PIN verification (saved $6M annually).',
               annotation: {
-                id: 'grubhub-pin-verification',
+                id: createID('grubhub-pin-verification'),
                 title: 'PIN verification',
                 content: `## PIN Verification: What is it?
 You've seen this before not only in this app but other apps where handshakes (metaphorical or literal) help to thwart ne'er-do-wells and to avoid well-meaning mistakes. The problem was that food-eaters wanted to eat their food but couldn't find it even though it'd been marked as delivered. So we added a process for verifying that the food-eater and the deliverer were both at the right place.
@@ -101,7 +112,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       ]
     },
     {
-      id: 'beautycounter',
+      id: createID('beautycounter'),
       company: 'Beautycounter',
       location: 'Santa Monica, CA',
       remote: false,
@@ -154,7 +165,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       ]
     },
     {
-      id: 'cuyana',
+      id: createID('cuyana'),
       company: 'Cuyana',
       location: 'San Francisco, CA',
       remote: true,
@@ -184,7 +195,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       ]
     },
     {
-      id: 'sagepath',
+      id: createID('sagepath'),
       company: 'Sagepath',
       location: 'Atlanta, GA',
       remote: true,
@@ -216,7 +227,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
   ],
   education: [
     {
-      id: 'gsu',
+      id: createID('gsu'),
       school: 'Georgia State University',
       degree: DegreeType.BACHELOR_OF_ARTS,
       fieldOfStudy: 'Film and Video',
@@ -229,7 +240,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       name: 'Engineering leadership',
       category: CompetencyCategory.LEADERSHIP,
       annotation: {
-        id: 'engineering-leadership',
+        id: createID('engineering-leadership'),
         title: 'Engineering Leadership',
         content: `
 # Engineering Leadership
@@ -253,7 +264,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       name: 'Coaching',
       category: CompetencyCategory.LEADERSHIP,
       annotation: {
-        id: 'coaching',
+        id: createID('coaching'),
         title: 'Coaching & Mentorship',
         content: `
 # Coaching & Mentorship
@@ -351,7 +362,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       link: 'https://www.tvguide.com/authors/nicholascampb/',
       description: 'for TV.com and TVGuide.com (2012 - 2017, over 40 episode recaps and features)',
       annotation: {
-        id: 'tv-reviews',
+        id: createID('tv-reviews'),
         title: 'TV Reviews & Features',
         content: `
 # TV Reviews & Features

@@ -267,55 +267,65 @@ a:hover {
 .annotation-linked-text {
   border-bottom: 2px dotted var(--link-underline);
   background-color: var(--link-bg);
+  border-top: none;
+  border-left-width: 2px;
+  border-right-width: 2px;
 }
 
 .annotation-linked-text:hover {
   border-bottom-color: var(--link-bg);
+  border-top: none;
 }
 
 /* Print-specific styles */
 @media print {
-  /* Hide annotation buttons and side panels */
   .text-theme-hover {
-    text-decoration: none !important;
-    color: inherit !important;
+    color: var(--text-color) !important;
   }
 
-  /* Hide theme toggle */
   .theme-toggle {
     display: none !important;
   }
 
-  /* Hide contact form */
   .modal-overlay,
-  .modal-content {
+  .theme-dropdown {
     display: none !important;
   }
 
-  /* Optimize page breaks */
   section {
+    margin-bottom: 1em;
+  }
+
+  .job {
+    margin-bottom: 1em;
+  }
+
+  article {
     page-break-inside: avoid;
   }
 
-  /* Ensure proper margins */
-  @page {
-    margin: 1cm;
-  }
-
-  /* Optimize text colors for printing */
   body {
-    color: black !important;
-    background: white !important;
+    color: #000;
+    background-color: #fff;
+    font-size: 10pt;
+    line-height: 1.5;
   }
 
-  /* Ensure links are visible in print */
   a {
-    color: black !important;
-    text-decoration: underline !important;
+    text-decoration: none;
+    color: #000;
+    border-bottom: none;
   }
 
-  /* Hide annotation side panels */
   [role="dialog"] {
+    display: none !important;
+  }
+
+  .theme-toggle-button {
+    display: none !important;
+  }
+
+  .theme-dropdown {
     display: none !important;
   }
 }

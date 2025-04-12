@@ -1,24 +1,33 @@
 import { useState, useEffect, useRef } from 'react';
-import { FormErrors } from '../types/form';
+import { FormErrors } from '../../types/form';
+import { ErrorBoundary } from '../common/ErrorBoundary';
 
 interface ContactFormProps {
-  isOpen: boolean;
-  onClose: () => void;
+  readonly isOpen: boolean;
+  readonly onClose: () => void;
 }
 
 type FormStatus = 'idle' | 'submitting' | 'submitted' | 'error' | 'rate-limited';
 
+interface FormData {
+  readonly name: string;
+  readonly email: string;
+  readonly message: string;
+  readonly _gotcha: string; // Honeypot field
+}
+
 /**
- * ContactForm - Modal form component for contact information
- * @param {boolean} isOpen - Controls modal visibility
- * @param {function} onClose - Handler for closing the modal
+ * Modal form component for contact information
+ * @param isOpen - Controls modal visibility
+ * @param onClose - Handler for closing the modal
+ * @returns A modal dialog containing a contact form
  */
-const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
-  const [formData, setFormData] = useState({
+const ContactFormComponent = ({ isOpen, onClose }: ContactFormProps): React.ReactElement | null => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: '',
-    _gotcha: '' // Honeypot field
+    _gotcha: ''
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<FormStatus>('idle');
@@ -40,7 +49,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
       }, 0);
 
       // Handle focus trap
-      const handleFocusTrap = (e: KeyboardEvent) => {
+      const handleFocusTrap = (e: KeyboardEvent): void => {
         if (e.key === 'Tab') {
           if (e.shiftKey) {
             // Shift + Tab
@@ -70,7 +79,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
 
   // Close modal on Escape key
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
+    const handleEscape = (e: KeyboardEvent): void => {
       if (e.key === 'Escape' && isOpen) {
         onClose();
       }
@@ -101,12 +110,12 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     
     // Check rate limiting
@@ -149,11 +158,14 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-form-title"
+      aria-describedby="contact-form-description"
       ref={modalRef}
     >
       <div className="modal-content text-left flex flex-col justify-center relative">
         <h2 id="contact-form-title">Contact Me</h2>
-        <p className="text-sm my-2">I would give you my email but I don't know you (probably) so leave a message.</p>
+        <p id="contact-form-description" className="text-sm my-2">
+          I would give you my email but I don't know you (probably) so leave a message.
+        </p>
         <button
           ref={closeButtonRef}
           className="close-button absolute right-4 top-4 text-2xl"
@@ -166,12 +178,14 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
           onSubmit={handleSubmit}
           className="contact-form"
           noValidate
+          aria-busy={status === 'submitting'}
         >
           {status === 'submitted' ? (
             <div 
               className="success-message"
               role="alert"
               aria-live="polite"
+              aria-atomic="true"
             >
               Thank you for your message! I'll get back to you soon.
             </div>
@@ -180,6 +194,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
               className="error-message"
               role="alert"
               aria-live="polite"
+              aria-atomic="true"
             >
               Sorry, there was an error sending your message. Please try again or contact me through LinkedIn.
             </div>
@@ -188,6 +203,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
               className="error-message"
               role="alert"
               aria-live="polite"
+              aria-atomic="true"
             >
               Please wait a moment before sending another message. This helps prevent spam.
             </div>
@@ -204,11 +220,12 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                   onChange={handleChange}
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
+                  aria-required="true"
                   required
                   disabled={status === 'submitting'}
                 />
                 {errors.name && (
-                  <span id="name-error" className="field-error">
+                  <span id="name-error" className="field-error" role="alert">
                     {errors.name}
                   </span>
                 )}
@@ -224,11 +241,12 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                   onChange={handleChange}
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
+                  aria-required="true"
                   required
                   disabled={status === 'submitting'}
                 />
                 {errors.email && (
-                  <span id="email-error" className="field-error">
+                  <span id="email-error" className="field-error" role="alert">
                     {errors.email}
                   </span>
                 )}
@@ -244,17 +262,19 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                   onChange={handleChange}
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-required="true"
                   required
                   disabled={status === 'submitting'}
                 />
                 {errors.message && (
-                  <span id="message-error" className="field-error">
+                  <span id="message-error" className="field-error" role="alert">
                     {errors.message}
                   </span>
                 )}
               </div>
 
-              <div className="sr-only">
+              {/* Honeypot field */}
+              <div className="hidden">
                 <label htmlFor="_gotcha">Don't fill this out if you're human</label>
                 <input
                   type="text"
@@ -267,14 +287,13 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                 />
               </div>
 
-              <div className="form-actions flex justify-center">
-                <button 
-                  type="submit" 
-                  disabled={status === 'submitting'}
-                >
-                  {status === 'submitting' ? 'Sending...' : 'Send Message'}
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={status === 'submitting'}
+              >
+                {status === 'submitting' ? 'Sending...' : 'Send Message'}
+              </button>
             </>
           )}
         </form>
@@ -283,4 +302,11 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
   );
 };
 
-export default ContactForm; 
+/**
+ * Wrapped version of ContactForm with error boundary
+ */
+export const ContactForm = (props: ContactFormProps): React.ReactElement | null => (
+  <ErrorBoundary>
+    <ContactFormComponent {...props} />
+  </ErrorBoundary>
+); 

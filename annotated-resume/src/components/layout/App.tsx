@@ -1,15 +1,15 @@
 import { useState, lazy, Suspense } from 'react'
-import { useTheme } from './context/ThemeContext'
+import { useTheme } from '../../context/ThemeContext'
 import './App.css'
-import { resumeData } from './data/resumeData'
-import JobEntry from './components/JobEntry'
-import ContactSection from './components/ContactSection'
-import SchoolEntry from './components/SchoolEntry'
-import AnnotatedText from './components/AnnotatedText'
-import ThemeToggle from './components/ThemeToggle'
+import { resumeData } from '../../data/resumeData'
+import { JobEntry } from '../resume/JobEntry'
+import { ContactSection } from '../forms/ContactSection'
+import { SchoolEntry } from '../resume/SchoolEntry'
+import { AnnotatedText } from '../common/AnnotatedText'
+import { ThemeToggle } from '../common/ThemeToggle'
 
 // Lazy load the contact form
-const ContactForm = lazy(() => import('./components/ContactForm'))
+const ContactForm = lazy(() => import('../forms/ContactForm').then(module => ({ default: module.ContactForm })))
 
 /**
  * App - Main application component
@@ -91,7 +91,10 @@ const App = () => {
                 >
                   <AnnotatedText
                     text={competency.name}
-                    annotations={competency.annotation ? [competency.annotation] : undefined}
+                    annotations={competency.annotation ? [{
+                      ...competency.annotation,
+                      linkedText: competency.annotation.linkedText || competency.name
+                    }] : undefined}
                   />
                   {competency.description && (
                     <span className="sr-only">
@@ -141,7 +144,10 @@ const App = () => {
                 <li key={idx} role="listitem">
                   <AnnotatedText
                     text={publication.title}
-                    annotations={publication.annotation ? [publication.annotation] : undefined}
+                    annotations={publication.annotation ? [{
+                      ...publication.annotation,
+                      linkedText: publication.annotation.linkedText || publication.title
+                    }] : undefined}
                   />
                   {publication.link && (
                     <a 

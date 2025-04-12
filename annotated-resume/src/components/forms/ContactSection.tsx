@@ -2,16 +2,17 @@ import { memo } from 'react';
 import { ContactInfo } from '../types/resume';
 
 interface ContactSectionProps {
-  contact: ContactInfo;
-  onContactClick: () => void;
+  readonly contact: ContactInfo;
+  readonly onContactClick: () => void;
 }
 
 /**
- * ContactSection - Displays contact information and handles contact form interaction
- * @param {ContactInfo} contact - The contact information to display
- * @param {function} onContactClick - Handler for contact form interaction
+ * Displays contact information and handles contact form interaction
+ * @param contact - The contact information to display
+ * @param onContactClick - Handler for contact form interaction
+ * @returns A section containing contact information and links
  */
-const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps) => {
+const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps): React.ReactElement => {
   return (
     <section 
       id="contact" 
@@ -62,4 +63,4 @@ const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps) =
 
 ContactSection.displayName = 'ContactSection';
 
-export default ContactSection; 
+export { ContactSection }; 

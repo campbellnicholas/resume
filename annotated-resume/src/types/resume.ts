@@ -1,107 +1,116 @@
 import { DegreeType, PublicationType, TechnologyCategory, CompetencyCategory } from './enums';
 
+// Branded type for IDs to prevent mixing different types of IDs
+export type ID = string & { readonly __brand: unique symbol };
+
+// Helper function to create IDs
+export const createID = (id: string): ID => id as ID;
+
+// Type guard for IDs
+export const isID = (value: unknown): value is ID => typeof value === 'string';
+
 export interface Annotation {
-  id: string;
-  title: string;
-  content: string | React.ReactNode;
+  readonly id: ID;
+  readonly title: string;
+  readonly content: string | React.ReactNode;
 }
 
 export interface AnnotatedText {
-  text: string;
-  annotations?: Array<{
-    id: string;
-    title: string;
-    content: string;
-    linkedText: string;
+  readonly text: string;
+  readonly annotations?: ReadonlyArray<{
+    readonly id: ID;
+    readonly title: string;
+    readonly content: string;
+    readonly linkedText: string;
   }>;
 }
 
 export interface Responsibility {
-  text: string;
-  annotation?: {
-    id: string;
-    title: string;
-    content: string;
-    linkedText?: string;
+  readonly text: string;
+  readonly annotation?: {
+    readonly id: ID;
+    readonly title: string;
+    readonly content: string;
+    readonly linkedText?: string;
   };
 }
 
 export interface Job {
-  id: string;
-  company: string;
-  location: string;
-  remote: boolean;
-  positions: Position[];
+  readonly id: ID;
+  readonly company: string;
+  readonly location: string;
+  readonly remote: boolean;
+  readonly positions: ReadonlyArray<Position>;
 }
 
 export interface School {
-  id: string;
-  school: string;
-  degree: DegreeType;
-  fieldOfStudy: string;
-  location: string;
-  graduationYear?: number;
+  readonly id: ID;
+  readonly school: string;
+  readonly degree: DegreeType;
+  readonly fieldOfStudy: string;
+  readonly location: string;
+  readonly graduationYear?: number;
 }
 
 export interface Position {
-  title: string;
-  team?: string;
-  startDate: string;
-  endDate: string;
-  responsibilities: Responsibility[];
+  readonly title: string;
+  readonly team?: string;
+  readonly startDate: string;
+  readonly endDate: string;
+  readonly responsibilities: ReadonlyArray<Responsibility>;
 }
 
 export interface Publication {
-  title: string;
-  type: PublicationType;
-  link?: string;
-  description: string;
-  date?: string;
-  publisher?: string;
-  annotation?: {
-    id: string;
-    title: string;
-    content: string;
-    linkedText?: string;
+  readonly title: string;
+  readonly type: PublicationType;
+  readonly link?: string;
+  readonly description: string;
+  readonly date?: string;
+  readonly publisher?: string;
+  readonly annotation?: {
+    readonly id: ID;
+    readonly title: string;
+    readonly content: string;
+    readonly linkedText?: string;
   };
 }
 
 export interface Technology {
-  name: string;
-  category: TechnologyCategory;
-  proficiency?: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  readonly name: string;
+  readonly category: TechnologyCategory;
+  readonly proficiency?: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
 }
 
 export interface Competency {
-  name: string;
-  category: CompetencyCategory;
-  description?: string;
-  annotation?: {
-    id: string;
-    title: string;
-    content: string;
-    linkedText?: string;
+  readonly name: string;
+  readonly category: CompetencyCategory;
+  readonly description?: string;
+  readonly annotation?: {
+    readonly id: ID;
+    readonly title: string;
+    readonly content: string;
+    readonly linkedText?: string;
   };
 }
 
 export interface ContactInfo {
-  city: string;
-  linkedIn: {
-    url: string;
-    displayText: string;
+  readonly city: string;
+  readonly linkedIn: {
+    readonly url: string;
+    readonly displayText: string;
   };
-  email?: string;
-  phone?: string;
-  website?: string;
+  readonly email?: string;
+  readonly phone?: string;
+  readonly website?: string;
 }
 
 export interface ResumeData {
-  name: string;
-  contact: ContactInfo;
-  summary: AnnotatedText;
-  experience: Job[];
-  education: School[];
-  competencies: Competency[];
-  technologies: Technology[];
-  publications: Publication[];
+  readonly name: string;
+  readonly contact: ContactInfo;
+  readonly summary: AnnotatedText;
+  readonly experience: ReadonlyArray<Job>;
+  readonly education: ReadonlyArray<School>;
+  readonly competencies: ReadonlyArray<Competency>;
+  readonly technologies: ReadonlyArray<Technology>;
+  readonly publications: ReadonlyArray<Publication>;
 } 

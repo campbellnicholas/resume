@@ -1,23 +1,27 @@
 import { memo } from 'react';
 import { Publication } from '../types/resume';
+import { ErrorBoundary } from './ErrorBoundary';
 
 interface PublicationEntryProps {
-  publication: Publication;
+  readonly publication: Publication;
 }
 
 /**
  * PublicationEntry - Displays a single publication entry
  * @param {Publication} publication - The publication data to display
  */
-const PublicationEntry = memo(({ publication }: PublicationEntryProps) => {
+const PublicationEntryComponent = memo(({ publication }: PublicationEntryProps) => {
   return (
-    <li className="publication-entry">
+    <li 
+      className="publication-entry"
+      role="listitem"
+    >
       {publication.link ? (
         <a 
           href={publication.link}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Read ${publication.title}`}
+          aria-label={`Read publication: ${publication.title}`}
         >
           {publication.title}
         </a>
@@ -29,6 +33,13 @@ const PublicationEntry = memo(({ publication }: PublicationEntryProps) => {
   );
 });
 
-PublicationEntry.displayName = 'PublicationEntry';
+PublicationEntryComponent.displayName = 'PublicationEntry';
 
-export default PublicationEntry; 
+/**
+ * Wrapped version of PublicationEntry with error boundary
+ */
+export const PublicationEntry = (props: PublicationEntryProps): React.ReactElement => (
+  <ErrorBoundary>
+    <PublicationEntryComponent {...props} />
+  </ErrorBoundary>
+); 

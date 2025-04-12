@@ -1,17 +1,19 @@
 import { memo, useState, useRef, useEffect } from 'react';
-import { useTheme, themeRegistry, Theme } from '../context/ThemeContext';
+import { useTheme, themeRegistry, Theme } from '../../context/ThemeContext';
+import { ErrorBoundary } from './ErrorBoundary';
 
 /**
- * ThemeToggle - Component for selecting and switching between themes
+ * Component for selecting and switching between themes
+ * @returns A div containing theme selection buttons and dropdown
  */
-const ThemeToggle = memo(() => {
+const ThemeToggleComponent = memo((): React.ReactElement => {
   const { theme, setTheme, availableThemes } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent): void => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
@@ -21,7 +23,7 @@ const ThemeToggle = memo(() => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleThemeChange = (newTheme: Theme) => {
+  const handleThemeChange = (newTheme: Theme): void => {
     setTheme(newTheme);
     setIsOpen(false);
   };
@@ -74,6 +76,13 @@ const ThemeToggle = memo(() => {
   );
 });
 
-ThemeToggle.displayName = 'ThemeToggle';
+ThemeToggleComponent.displayName = 'ThemeToggle';
 
-export default ThemeToggle; 
+/**
+ * Wrapped version of ThemeToggle with error boundary
+ */
+export const ThemeToggle = (): React.ReactElement => (
+  <ErrorBoundary>
+    <ThemeToggleComponent />
+  </ErrorBoundary>
+); 
