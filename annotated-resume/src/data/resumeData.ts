@@ -57,7 +57,7 @@ What is it that I do? I like to lead teams of puzzle-solving engineers to have a
           responsibilities: [
             {
               text: 'Managed a cross-functional engineering team (Android, iOS, Web) of 10-12 engineers in the resiliency and enhancement of the order tracking feature for Grubhub and seamless consumer-facing applications written in Kotlin, Swift, and React/TypeScript.',
-              annotation: {
+              annotations: [{
                 id: createID('grubub-engineer-number'),
                 title: '10-12 engineers',
                 content: `## Are you not sure about the number of engineers on your team? Were some of them ghosts?
@@ -66,11 +66,11 @@ Were some of them ghosts? No. At least I don't think so. BUT NOW I'M NOT SURE.
 
 This is more about the fluctuation of the team members as we assumed and shed responsibilities during various restructures. Over the course of three and a half years, we usually had somewhere between 10 and 12 engineers. You might call that 11 on average. At least 10, rarely more than 12. I managed a large team.`,
                 linkedText: '10-12 engineers'
-              }
+              }]
             },
             {
               text: 'Drove the successful launch of MVPs on many projects including item substitution workflows (reduced order cancellations by 5% and contacts to customer service by 10%) and adding PIN verification (saved $6M annually).',
-              annotation: {
+              annotations: [{
                 id: createID('grubhub-pin-verification'),
                 title: 'PIN verification',
                 content: `## PIN Verification: What is it?
@@ -91,10 +91,9 @@ All the time. Just, like, all the time. It was in three different very accessibl
 Yeah! We dropped the number of contacts to customer service for missed deliveries which was the goal and that saved $6MM annually. 
 
 ### Do you have more implementation details?
-Oh, I can get into the weeds. Message me about it and we can talk as much as you want as long as I don't cross any lines into Food Bandits getting an inside edge.
-`,
+Oh, I can get into the weeds. Message me about it and we can talk as much as you want as long as I don't cross any lines into Food Bandits getting an inside edge.`,
                 linkedText: 'PIN verification'
-              }
+              }]
             },
             {
               text: 'Pushed iterative development for existing features around enhanced order transparency for consumers (example: added transparency for bundled orders, which reduced delivery estimate contacts by 20%, saving $1M annually) and merchants (example: automated workflow to dispute attribution charges).'
@@ -239,7 +238,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
     {
       name: 'Engineering leadership',
       category: CompetencyCategory.LEADERSHIP,
-      annotation: {
+      annotations: [{
         id: createID('engineering-leadership'),
         title: 'Engineering Leadership',
         content: `
@@ -258,12 +257,12 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
 - Fostered team growth and development
 `,
         linkedText: 'Engineering leadership'
-      }
+      }]
     },
     {
       name: 'Coaching',
       category: CompetencyCategory.LEADERSHIP,
-      annotation: {
+      annotations: [{
         id: createID('coaching'),
         title: 'Coaching & Mentorship',
         content: `
@@ -282,7 +281,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
 - Fostered continuous learning
 `,
         linkedText: 'Coaching'
-      }
+      }]
     },
     {
       name: 'Mentoring',
@@ -361,7 +360,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       type: PublicationType.ESSAY,
       link: 'https://www.tvguide.com/authors/nicholascampb/',
       description: 'for TV.com and TVGuide.com (2012 - 2017, over 40 episode recaps and features)',
-      annotation: {
+      annotations: [{
         id: createID('tv-reviews'),
         title: 'TV Reviews & Features',
         content: `
@@ -386,7 +385,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
 - Audience-focused communication
 `,
         linkedText: 'Reviews'
-      }
+      }]
     }
   ]
 }; 

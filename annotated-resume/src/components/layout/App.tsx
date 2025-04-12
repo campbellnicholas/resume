@@ -91,10 +91,10 @@ const App = () => {
                 >
                   <AnnotatedText
                     text={competency.name}
-                    annotations={competency.annotation ? [{
-                      ...competency.annotation,
-                      linkedText: competency.annotation.linkedText || competency.name
-                    }] : undefined}
+                    annotations={competency.annotations?.map(annotation => ({
+                      ...annotation,
+                      linkedText: annotation.linkedText || competency.name
+                    }))}
                   />
                   {competency.description && (
                     <span className="sr-only">
@@ -144,10 +144,10 @@ const App = () => {
                 <li key={idx} role="listitem">
                   <AnnotatedText
                     text={publication.title}
-                    annotations={publication.annotation ? [{
-                      ...publication.annotation,
-                      linkedText: publication.annotation.linkedText || publication.title
-                    }] : undefined}
+                    annotations={publication.annotations?.map(annotation => ({
+                      ...annotation,
+                      linkedText: annotation.linkedText || publication.title
+                    }))}
                   />
                   {publication.link && (
                     <a 

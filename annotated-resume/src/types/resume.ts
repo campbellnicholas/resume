@@ -27,12 +27,12 @@ export interface AnnotatedText {
 
 export interface Responsibility {
   readonly text: string;
-  readonly annotation?: {
+  readonly annotations?: ReadonlyArray<{
     readonly id: ID;
     readonly title: string;
     readonly content: string;
     readonly linkedText?: string;
-  };
+  }>;
 }
 
 export interface Job {
@@ -67,12 +67,12 @@ export interface Publication {
   readonly description: string;
   readonly date?: string;
   readonly publisher?: string;
-  readonly annotation?: {
+  readonly annotations?: ReadonlyArray<{
     readonly id: ID;
     readonly title: string;
     readonly content: string;
     readonly linkedText?: string;
-  };
+  }>;
 }
 
 export interface Technology {
@@ -85,12 +85,12 @@ export interface Competency {
   readonly name: string;
   readonly category: CompetencyCategory;
   readonly description?: string;
-  readonly annotation?: {
+  readonly annotations?: ReadonlyArray<{
     readonly id: ID;
     readonly title: string;
     readonly content: string;
     readonly linkedText?: string;
-  };
+  }>;
 }
 
 export interface ContactInfo {

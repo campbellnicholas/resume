@@ -35,10 +35,10 @@ const JobEntry = ({ job }: JobEntryProps): React.ReactElement => {
                 <li key={rIdx}>
                   <AnnotatedText
                     text={responsibility.text}
-                    annotations={responsibility.annotation ? [{
-                      ...responsibility.annotation,
-                      linkedText: responsibility.annotation.linkedText || responsibility.text
-                    }] : undefined}
+                    annotations={responsibility.annotations?.map(annotation => ({
+                      ...annotation,
+                      linkedText: annotation.linkedText || responsibility.text
+                    }))}
                   />
                 </li>
               ))}
