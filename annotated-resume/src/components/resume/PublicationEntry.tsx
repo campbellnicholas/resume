@@ -1,6 +1,7 @@
 import { memo } from 'react';
-import { Publication } from '../types/resume';
-import { ErrorBoundary } from './ErrorBoundary';
+import { Publication } from '../../types/resume';
+import { ErrorBoundary } from '../common/ErrorBoundary';
+import { AnnotatedText } from '../common/AnnotatedText';
 
 interface PublicationEntryProps {
   readonly publication: Publication;
@@ -16,19 +17,24 @@ const PublicationEntryComponent = memo(({ publication }: PublicationEntryProps) 
       className="publication-entry"
       role="listitem"
     >
-      {publication.link ? (
+      <AnnotatedText
+        text={publication.description}
+        annotations={publication.annotations?.map(annotation => ({
+          ...annotation,
+          linkedText: annotation.linkedText || publication.title
+        }))}
+      />
+      {publication.link && (
         <a 
           href={publication.link}
           target="_blank"
           rel="noopener noreferrer"
+          className="text-theme-hover hover:underline ml-2"
           aria-label={`Read publication: ${publication.title}`}
         >
-          {publication.title}
+          (Link)
         </a>
-      ) : (
-        <span>{publication.title}</span>
       )}
-      <span className="publication-description"> {publication.description}</span>
     </li>
   );
 });

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ContactInfo } from '../types/resume';
+import { ContactInfo } from '../../types/resume';
 
 interface ContactSectionProps {
   readonly contact: ContactInfo;

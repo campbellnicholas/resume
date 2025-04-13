@@ -35,9 +35,11 @@ Empathetic leadership is a way of creating teams and environments that are inclu
         title: '"Engineering manager"',
         content: `# Ugh, this is so dry.
 
-Most people that I talk to that are resume experts say that I need to have a stodgy persona in the resume because ATS/AI/headless resume scanners don't have the nuance to understand dynamic sentence structures. That makes sense. This professional summary, though, while packed with phrases that describe what I do, is much more bland than I would like it to be.
+Most people of the resume experts (professional and self-proclaimed) I talk to say  I need to have this stodgy persona in a resume because ATS/AI/headless resume scanners don't have the nuance to pull the capable employee from more dynamic sentence structure and the desire to make reading entertaining. That makes sense. This professional summary, though, while packed with phrases that describe what I am good at, is just so deeply bland.
 
-What is it that I do? I like to lead teams of puzzle-solving engineers to have a humane way of life while also producing high-quality software. That's really it. Also people like to partner with me because (1) I'm not a jerk and (2) I like to solve their problems, too.`,
+What is it that I do? I like to lead teams of puzzle-solving engineers to have a humane way of life while also producing high-quality software. That's really it. Also people like to partner with me because (1) I'm not a jerk and (2) I like to solve their problems, too. 
+
+Also I'm funny. Well, more funny than AI at least. So far.`,
         linkedText: 'Engineering manager'
       }
     ]
@@ -76,22 +78,16 @@ This is more about the fluctuation of the team members as we assumed and shed re
                 content: `## PIN Verification: What is it?
 You've seen this before not only in this app but other apps where handshakes (metaphorical or literal) help to thwart ne'er-do-wells and to avoid well-meaning mistakes. The problem was that food-eaters wanted to eat their food but couldn't find it even though it'd been marked as delivered. So we added a process for verifying that the food-eater and the deliverer were both at the right place.
 
-![Food Bandit Thwarted!](images/grubhub-pin-verification.webp)
-
-### Okay. But what is it?
-Oh, right. So we added a PIN that the food-eater could see and only them. Then the deliverer had to ask the food-eater for the PIN in order to complete the delivery (so they could move on to the next delivery). Hopefully, this ensured that the delivery happened correctly and food-eaters could chow down.
+![Food Bandit Thwarted!](./assets/images/grubhub-pin-verification.webp)
 
 ### What was your part?
-Thanks so much for asking. Our team was responsible for showing the food-eater the PIN in the post purchase/order tracking screen. We decoupled it from the rest of the PIN generation process by only attempting to show the workflow if we had the information. This made it a lot easier to roll out indpendently and allowed to finish very quickly. We also added it to notifications, which we were also responsible for, and into order details to make sure it was in as many places as possible.
+Thanks so much for asking. Our team was responsible for showing the food-eater the PIN in the post purchase/order tracking screen. We decoupled it from the rest of the PIN generation process. This made it a lot easier to roll out indpendently and allowed to finish very quickly. We also added it to notifications, which we were also responsible for, and into order details to make sure it was in as many places as possible.
 
 ### Did people still miss it?
-All the time. Just, like, all the time. It was in three different very accessible places but people still missed it. Adding it in more places (like Live Activities on iOS) was one move. Another would be to make it stand out more in the very contested space on that order tracking screen. But more people saw it than missed it and it helped.
+All the time. Just, like, all the time. Most found it but a lot of people still couldn't find it. We were in the middle of building the next iteration to make it easier to find in the noise and to improve the notification experience when I left the company.
 
-### So it did work?
-Yeah! We dropped the number of contacts to customer service for missed deliveries which was the goal and that saved $6MM annually. 
-
-### Do you have more implementation details?
-Oh, I can get into the weeds. Message me about it and we can talk as much as you want as long as I don't cross any lines into Food Bandits getting an inside edge.`,
+### But did it work?
+Yeah! We dropped the number of contacts to customer service for missed deliveries which was the goal and that saved $6MM annually. If you're interested in more, feel free to drop me a line.`,
                 linkedText: 'PIN verification'
               }]
             },
@@ -99,11 +95,57 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
               text: 'Pushed iterative development for existing features around enhanced order transparency for consumers (example: added transparency for bundled orders, which reduced delivery estimate contacts by 20%, saving $1M annually) and merchants (example: automated workflow to dispute attribution charges).'
             },
             {
-              text: 'Implemented a standardized design document process, fostering clearer communication and collaboration, and optimized the release process, saving on delivery timeline overages by 25%.'
+              text: 'Implemented a standardized design document process, fostering clearer communication and collaboration, and optimized the release process, saving on delivery timeline overages by 25%.',
+              annotations: [{
+                id: createID('grubhub-timeline-overages'),
+                title: '"timeline overages by 25%"',
+                content: `## What does 'timeline overages by 25%' even mean?
+
+In the aftermath of a long, onorous project, we came together as a team to figure out why is was both long and onorous. We learned that the project exacerbated existing issues: engineers estimating based on optimistic assumptions and things took longer than they thought; other engineers and teams weren't always on the same page if we needed things from them; and requirements that seemed clear weren't. We'd been able to limp through smaller work based on our team's great collaborative and communicative environment but the large project really blew those problems up. As large projects are wont to do.
+
+So I revamped the software development process for our team which required more upfront organization and investigation. This including splitting the project and engineering kickoffs, requiring design documents like RFCs for projects and getting reviews from all engineers involved. By the end of the engineering kickoff, product, design, and engineering across the org would be on the same page. This saved us a lot of pivoting and juking throughout a feature and allowed us to both ask good questions and deliver, if not faster, at least more consistently on time. 
+
+It worked so well, we spread it to other teams in our organization and I wrote documentation for our implementation so that others could contribute. We also had kaizens to continue to improve the process which engineers and partners were very involved in.
+`,
+                linkedText: 'timeline overages by 25%'
+              }]
             },
-            { text: 'Collaborated with product, design, business insights, and other engineering teams to build road maps, coordinate capacity planning, prioritize projects, and construct a highly visible and accessible backlog.' },
-            { text: 'Supervised a backend Java engineering team, delivering critical data APIs for customer support agent tools and order tracking frontend features.' },
-            { text: 'Coached and mentored engineers at varied levels (staff, senior, and more junior) on goal-setting against both company directives and individual growth at the company and beyond, leading to promotion tracks.' },
+            { text: 'Collaborated with product, design, business insights, and other engineering teams to define roadmaps, coordinate capacity planning, distill engineering needs, and prioritize projects along axes of business growth and engineering excellence.' },
+            { text: 'Supervised a backend microservices engineering team (Java and Kotlin), delivering critical data APIs for customer support agent tools and order tracking frontend features.' },
+            { text: 'Mentored engineers at varied levels (SE1, SE2, Senior, and Staff) on goal-setting against both company directives and individual growth at the company and beyond, leading to promotion tracks.',
+              annotations: [{
+                id: createID('grubhub-mentoring-levels'),
+                title: '"SE1, SE2, Senior, and Staff"',
+                content: `## Senior and Staff I know. But SE1 and SE2?
+
+Software Engineer 1 and Software Engineer 2. These don't necessarily map exactly in every company. SE1 is usually just above an associate engineer who is brand new (out of college or a career change). SE1 is your quintessential junior engineer. SE2 is that mid-level engineer transitioning into the independence of a Senior engineer. 
+
+Some helpful approximate mapping from <a href="https://www.levels.fyi/?compare=Grubhub,Google,DoorDash,Airbnb,Microsoft&track=Software%20Engineer" target="_blank" rel="noopener">levels.fyi</a>:
+
+|Company|SE1|SE2|Senior|Staff|
+|---|---|---|---|---|
+|Google|L3/SWEII|L4/SWEIII|L4/SWEIII|L5/Senior|
+|DoorDash|E3|E4|E4|E5|
+|Airbnb|G7/Engineer|G8/Engineer|G9/Senior|G9/Senior|
+|Microsoft|SDE 59/60|SDE2 61/62|Senior 63|Senior 64|
+|Apple|ICT2/Jr|ICT3/SE|ICT4/Senior|ICT4/Senior|
+|Netflix|L3/Engineer|L4/Engineer II|L5/Senior|L5/Senior|
+
+PS: I sometimes have this written in other versions of my resume as "Staff, Senior, and more junior engineers." It's not my favorite way to describe the hierarchy since it muddles distinct positions so I'm opting for just being more explicit if a little wordy.
+`,
+                linkedText: 'SE1, SE2, Senior, and Staff'
+              },
+              {
+                id: createID('grubhub-growth-beyond'),
+                title: '"growth at the company and beyond"',
+                content: `## Do you want to talk about the "beyond" part?
+I do. Promotion paths are a tangible shorthand for growth. Getting to the next level at company is empirical evidence that you have grown. And it's good. I want engineers to get promoted. There are no losers in that sceenario. But sometimes promotion tracks can be narrowly focused on a company's principles and needs which may or may not translate to the larger industry. 
+
+I like to focus growing engineers for their careers. This isn't IBM in the '50s. Engineers are not going to be lifers with a penision. Transition is inevitable (and also a good thing) so I like to focus on creating good engineering habits for their work/life balance and their continuing education. It's a more holistic approach that keeps the trends of the modern industry in mind.
+`,
+                linkedText: 'growth at the company and beyond'
+              }
+          ]},
             { text: 'Engaged in hiring activities, including conducting phone screens, participating in panel interviews (system architecture, coding fundamentals, and behavioral), and contributing to hiring process improvements.' },
             { text: 'Acted as scrum master and Jira admin for the team in an Agile environment' },
           ]
@@ -126,7 +168,25 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
               text: 'Led eight software engineers across two teams in feature development and maintenance of an e-commerce platform: a web team building in React, NodeJS, and GraphQL; and an iOS team building in Swift.'
             },
             {
-              text: 'Owned shopping funnel and post purchase experience for beautycounter.com and the iOS app and launched dozens of initiatives including sampling, password security, dynamic widgets, and a blog re-platform.'
+              text: 'Owned shopping funnel and post purchase experience for beautycounter.com and the iOS app and launched dozens of initiatives including sampling, password security, dynamic widgets, and a blog re-platform.',
+              annotations: [{
+                id: createID('beautycounter-features'),
+                title: '"dozens of initiatives"',
+                content: `## So dozens means more than just these four?
+Yeah, many more. As noted elsewhere, the frontends team was in charge of every consumer-facing interface except for the checkout flow (and even then this team worked on elements in checkout, too). So everything like Beautycounter Live (live video streams from the Abbot Kinney store in Venice, CA), user-generated content organization, language options and translations, quick add to cart from category pages, and many others that wouldn't fit into 40 words or fewer. I chose these four because they cover some of the basics that the team was in charge of.
+
+![Sampling and Dynamic Widgets!](./assets/images/beautycounter-project-examples.webp)
+
+__Sampling:__ By purchasing products (or, in some cases, just by being a special type of customer), you could add samples of other products to your cart. So buy some sunscreen, get a free dose of face lotion. The types of samples needed to be updated by stakeholders easily and needed to be added to orders only in certain conditions and sometimes could also be purchased by certain kinds of customers. A lot of business logic went into building this feature and needed to work with non-engineer partners to make sure the rules were right and the right samples were available for a given month.
+
+__Dynamic Widgets:__ The inevitable position you are put in when using a service like Contentful is that you will run out of Content Types, or the units of forms from which you can build instances of your content. You have seveny billion records but the money comes in from how many content types are available to you: you have to jump tiers in order to get more. So we created a content type that allows a reference block to add in generic widgets based on other Content Types. Drag and drop your widgets and form elements to create a page.
+
+__Password Security:__ Because of the nature of Beautycounter's business and the lobby of people that sold Beautycounter products in the field, passwords were something of a problem (some sales associates would compromise a client's password security to do full concierge shopping on thier behalf). It was a problem. So we found a way to ensure that passwords were more secure, created a process to reset passwords so they fit criteria that made them difficult to guess, and updated the flow for recovering passwords. This was in conjunction to a Concierge flow that allowed sales associates to create orders for clients without actually logging in as the someone else.
+
+__Blog Re-Platform:__ The blog has been rotting on the site for forever and it was high time to do something about it. Trouble was that, it'd been decaying for so long, no one remembered how to actually update it, logins were mysteries, and the engineers we had were not versed in updating PHP. So we converted the WordPress site to a headless CMS and imported the content into a website so that we could update both the templates and content ourselves without having to divine the mysteries of Beautycounter employees of yore. We got to keep the old content (and refresh it) while also giving it the fresh, clean look the website had to offer.
+`,
+                linkedText: 'dozens of initiatives'
+              }]
             },
             {
               text: 'Co-architected the career framework for the technology department.'
@@ -260,7 +320,7 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       }]
     },
     {
-      name: 'Coaching',
+      name: 'Coaching & Mentorship',
       category: CompetencyCategory.LEADERSHIP,
       annotations: [{
         id: createID('coaching'),
@@ -280,12 +340,8 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
 - Built inclusive team cultures
 - Fostered continuous learning
 `,
-        linkedText: 'Coaching'
+        linkedText: 'Coaching & Mentorship'
       }]
-    },
-    {
-      name: 'Mentoring',
-      category: CompetencyCategory.LEADERSHIP
     },
     {
       name: 'Collaboration',
@@ -359,32 +415,18 @@ Oh, I can get into the weeds. Message me about it and we can talk as much as you
       title: 'Reviews',
       type: PublicationType.ESSAY,
       link: 'https://www.tvguide.com/authors/nicholascampb/',
-      description: 'for TV.com and TVGuide.com (2012 - 2017, over 40 episode recaps and features)',
+      description: 'Reviews for TV.com and TVGuide.com (2012 - 2017, over 40 episode recaps and features)',
       annotations: [{
         id: createID('tv-reviews'),
-        title: 'TV Reviews & Features',
+        title: '"TV.com and TVGuide.com"',
         content: `
-# TV Reviews & Features
+## What are these reviews for TV.com and TVGuide.com?
 
-## Writing Experience
-- Episode recaps and analysis
-- Feature articles
-- Industry commentary
-- Audience engagement
+These were reviews and recaps of television episodes. My beat consisted of _Pretty Little Liars_, _Supergirl_, _Scandal_, and occasionally filling in on _The Flash_ and _Arrow_. I started at TV.com until they were bought by CBS Interactive (and eventually pushed onto that great internet ice floe) and then I was folded into TVGuide.com. 
 
-## Publications
-- TV.com
-- TVGuide.com
-- Over 40 published pieces
-- 2012-2017 period
-
-## Skills Demonstrated
-- Analytical writing
-- Critical thinking
-- Entertainment industry knowledge
-- Audience-focused communication
+The reviews and recaps were in the vein of Television Without Pity but with less cruelty and meant to have more fun with the fans. Fans, I learned, are not to be trifled with. Am I a more evolved person almost a decade later? Hopefully. But also some are still funny in a _not_ cringy way so I leave them here as a button on a mostly bland document of my career. I can do all these engineering leadership things but also I have thoughts on how the Ezria ship from _PLL_ is morally objectionable.
 `,
-        linkedText: 'Reviews'
+        linkedText: 'TV.com and TVGuide.com'
       }]
     }
   ]

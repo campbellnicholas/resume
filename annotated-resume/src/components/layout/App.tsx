@@ -5,6 +5,7 @@ import { resumeData } from '../../data/resumeData'
 import { JobEntry } from '../resume/JobEntry'
 import { ContactSection } from '../forms/ContactSection'
 import { SchoolEntry } from '../resume/SchoolEntry'
+import { PublicationEntry } from '../resume/PublicationEntry'
 import { AnnotatedText } from '../common/AnnotatedText'
 import { ThemeToggle } from '../common/ThemeToggle'
 
@@ -141,28 +142,10 @@ const App = () => {
             <h2>Publications</h2>
             <ul role="list" aria-label="List of publications">
               {resumeData.publications.map((publication, idx) => (
-                <li key={idx} role="listitem">
-                  <AnnotatedText
-                    text={publication.title}
-                    annotations={publication.annotations?.map(annotation => ({
-                      ...annotation,
-                      linkedText: annotation.linkedText || publication.title
-                    }))}
-                  />
-                  {publication.link && (
-                    <a 
-                      href={publication.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-theme-hover hover:underline ml-2"
-                    >
-                      (Link)
-                    </a>
-                  )}
-                  <span className="text-theme-text/80 ml-2">
-                    {publication.description}
-                  </span>
-                </li>
+                <PublicationEntry 
+                  key={idx} 
+                  publication={publication} 
+                />
               ))}
             </ul>
           </section>

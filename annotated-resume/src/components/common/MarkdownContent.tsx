@@ -1,6 +1,8 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import type { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { Components } from 'react-markdown';
 
 /**
  * Props for the MarkdownContent component
@@ -14,78 +16,57 @@ interface MarkdownContentProps {
  * Component for rendering markdown content
  * @param content - The markdown content to render
  */
-const MarkdownContent = memo(({ content }: MarkdownContentProps) => {
-  const components = useMemo<Components>(() => ({
-    p: ({ children }) => (
-      <p className="mb-4 text-theme-text">{children}</p>
+const MarkdownContent = ({ content }: MarkdownContentProps): React.ReactElement => {
+  const components: Components = {
+    p: ({ children }) => <p className="mb-4">{children}</p>,
+    h1: ({ children }) => <h1 className="text-2xl font-bold mb-4">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-xl font-bold mb-3">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-lg font-bold mb-2">{children}</h3>,
+    ul: ({ children }) => <ul className="list-disc pl-6 mb-4">{children}</ul>,
+    ol: ({ children }) => <ol className="list-decimal pl-6 mb-4">{children}</ol>,
+    li: ({ children }) => <li className="mb-1">{children}</li>,
+    table: ({ children }) => (
+      <div className="overflow-x-auto mb-4">
+        <table className="min-w-full border-collapse border border-theme-border">
+          {children}
+        </table>
+      </div>
     ),
-    h1: ({ children }) => (
-      <h1 className="text-2xl font-bold mb-4 text-theme-text">{children}</h1>
+    thead: ({ children }) => <thead className="bg-theme-bg/50">{children}</thead>,
+    tbody: ({ children }) => <tbody>{children}</tbody>,
+    tr: ({ children }) => <tr className="border-b border-theme-border">{children}</tr>,
+    th: ({ children }) => (
+      <th className="px-4 py-2 text-left border-r border-theme-border">{children}</th>
     ),
-    h2: ({ children }) => (
-      <h2 className="text-xl font-semibold mb-3 text-theme-text">{children}</h2>
+    td: ({ children }) => (
+      <td className="px-4 py-2 border-r border-theme-border">{children}</td>
     ),
-    h3: ({ children }) => (
-      <h3 className="text-lg font-medium mb-2 text-theme-text">{children}</h3>
-    ),
-    ul: ({ children }) => (
-      <ul className="list-disc pl-6 mb-4 text-theme-text">{children}</ul>
-    ),
-    ol: ({ children }) => (
-      <ol className="list-decimal pl-6 mb-4 text-theme-text">{children}</ol>
-    ),
-    li: ({ children }) => (
-      <li className="mb-1 text-theme-text">{children}</li>
-    ),
-    a: ({ href, children }) => (
-      <a 
-        href={href} 
-        className="text-theme-hover hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </a>
-    ),
-    code: ({ children }) => (
-      <code className="bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 text-sm">
-        {children}
-      </code>
-    ),
-    pre: ({ children }) => (
-      <pre className="bg-gray-100 dark:bg-gray-800 rounded p-4 mb-4 overflow-x-auto">
-        {children}
-      </pre>
-    ),
-    img: ({ src, alt, node }) => {
+    img: ({ src, alt }) => {
       if (!src) return null;
-      // Remove the leading ./ if present
-      const cleanSrc = src.replace(/^\.\//, '');
-      
-      // Extract attributes from the markdown node
-      const attributes = node?.properties as Record<string, string> || {};
+      // Remove the leading ./ and assets/ or assets/images/ if present
+      const cleanSrc = src.replace(/^\.\/assets(\/images)?\//, '/images/');
       
       return (
-        <img 
-          src={`/${cleanSrc}`}
-          alt={alt || ''} 
-          className="my-4 rounded-lg shadow-lg max-w-full h-auto border-2 border-black"
-          loading="lazy"
-          {...attributes}
+        <img
+          src={cleanSrc}
+          alt={alt || ''}
+          className="max-w-full h-auto my-4 rounded-lg"
         />
       );
     },
-  }), []);
-
-  const processedContent = useMemo(() => content, [content]);
+  };
 
   return (
-    <ReactMarkdown components={components}>
-      {processedContent}
-    </ReactMarkdown>
+    <div className="prose prose-theme max-w-none">
+      <ReactMarkdown
+        components={components}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
   );
-});
+};
 
-MarkdownContent.displayName = 'MarkdownContent';
-
-export default MarkdownContent; 
+export default memo(MarkdownContent); 
