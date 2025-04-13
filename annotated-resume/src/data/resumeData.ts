@@ -189,7 +189,16 @@ __Blog Re-Platform:__ The blog has been rotting on the site for forever and it w
               }]
             },
             {
-              text: 'Co-architected the career framework for the technology department.'
+              text: 'Co-architected the career framework for the technology department.',
+              annotations: [{
+                id: createID('beautycounter-career-framework'),
+                title: '"career framework"',
+                content: `## Career Framework?
+There wasn't a clear trajectory for engineers to rise through the ranks. There were frontend and backend developers, a director, a principal engineer, and a CTO. But as the engineering practice started to get larger and more complex, particularly with the need for tech lead and engineering manager roles, the time had come for the little startup to be a grown-up about how people could get promoted and how their role matched across their industry. 
+
+So I teamed up with another engineering manager/tech lead to create a framework for what the levels looked like, came up with job descriptions, and created balanced tracks for ICs, managers, and architects. We presented it to our executive sponsors and we suddenly had job titles that made sense. This laddered into HR and review periods which we also helped to shape.`,
+                linkedText: 'career framework'
+              }]
             },
             {
               text: 'Created a positive team culture based on psychological safety, peer education, continual improvement, and career advancement and trajectory through coaching and mentoring focused on empathy.'
@@ -302,46 +311,29 @@ __Blog Re-Platform:__ The blog has been rotting on the site for forever and it w
         id: createID('engineering-leadership'),
         title: 'Engineering Leadership',
         content: `
-# Engineering Leadership
+## Engineering Leadership
 
-## Key Aspects
+This kind of is a concise version of the entire resume without the specific but, let's go.
+
+### Key Aspects
 - Team management and mentorship
 - Technical decision-making
 - Process optimization
 - Cross-functional collaboration
 
-## Impact
-- Led teams of 10-12 engineers
+### Impact
+- Led teams of 6-12 engineers and multiple teams simulteonously
 - Implemented standardized design processes
 - Optimized release workflows
 - Fostered team growth and development
+- Delivered important features and improvements on time
 `,
         linkedText: 'Engineering leadership'
       }]
     },
     {
       name: 'Coaching & Mentorship',
-      category: CompetencyCategory.LEADERSHIP,
-      annotations: [{
-        id: createID('coaching'),
-        title: 'Coaching & Mentorship',
-        content: `
-# Coaching & Mentorship
-
-## Approach
-- One-on-one mentorship
-- Career path guidance
-- Technical skill development
-- Leadership training
-
-## Results
-- Successfully mentored engineers to promotion
-- Developed career frameworks
-- Built inclusive team cultures
-- Fostered continuous learning
-`,
-        linkedText: 'Coaching & Mentorship'
-      }]
+      category: CompetencyCategory.LEADERSHIP
     },
     {
       name: 'Collaboration',
@@ -373,7 +365,15 @@ __Blog Re-Platform:__ The blog has been rotting on the site for forever and it w
     },
     {
       name: 'Creative writing',
-      category: CompetencyCategory.COMMUNICATION
+      category: CompetencyCategory.COMMUNICATION,
+      annotations: [{
+        id: createID('creative-writing'),
+        title: '"Creative Writing"',
+        content: `## Creative Writing
+
+You can see from my Education section that I don't have a Science degree but an Art degree, specifically writing for film and video. I do a lot of that in my free time. Novel-writing, short stories, screenplays, podcasts, television reviews/recaps, etc. I love the art and engineering in crafting a sensible narrative. It's why I also include "Storytelling" later on since it is the thing I'm actually trained in and not just the thing I have a lot of experience doing. Feel free to ask me about any of it.`,
+        linkedText: 'Creative writing'
+      }]
     },
     {
       name: 'Technical writing',

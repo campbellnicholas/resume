@@ -1,16 +1,16 @@
 import { useState, lazy, Suspense } from 'react'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from './context/ThemeContext'
 import './App.css'
-import { resumeData } from '../../data/resumeData'
-import { JobEntry } from '../resume/JobEntry'
-import { ContactSection } from '../forms/ContactSection'
-import { SchoolEntry } from '../resume/SchoolEntry'
-import { PublicationEntry } from '../resume/PublicationEntry'
-import { AnnotatedText } from '../common/AnnotatedText'
-import { ThemeToggle } from '../common/ThemeToggle'
+import { resumeData } from './data/resumeData'
+import { JobEntry } from './components/resume/JobEntry'
+import { ContactSection } from './components/resume/ContactSection'
+import { SchoolEntry } from './components/resume/SchoolEntry'
+import { PublicationEntry } from './components/resume/PublicationEntry'
+import { AnnotatedText } from './components/common/AnnotatedText'
+import { ThemeToggle } from './components/common/ThemeToggle'
 
 // Lazy load the contact form
-const ContactForm = lazy(() => import('../forms/ContactForm').then(module => ({ default: module.ContactForm })))
+const ContactForm = lazy(() => import('./components/forms/ContactForm').then(module => ({ default: module.ContactForm })))
 
 /**
  * App - Main application component
@@ -94,7 +94,7 @@ const App = () => {
                     text={competency.name}
                     annotations={competency.annotations?.map(annotation => ({
                       ...annotation,
-                      linkedText: annotation.linkedText || competency.name
+                      linkedText: annotation.linkedText || annotation.title
                     }))}
                   />
                   {competency.description && (
@@ -171,4 +171,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default App; 
