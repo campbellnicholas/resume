@@ -12,7 +12,7 @@ interface JobEntryProps {
  */
 const JobEntry = ({ job }: JobEntryProps): React.ReactElement => {
   return (
-    <article className="mb-8" role="article">
+    <article className="mb-8" role="article" aria-label={`Work Experience at ${job.company}`} id={job.id}>
       <header className="mb-4">
         <h3 className="font-semibold">{job.company}</h3>
         <p className="text-theme-text/80">

@@ -20,7 +20,7 @@ const SchoolEntryComponent = memo(({ school }: SchoolEntryProps): React.ReactEle
       aria-label={`Education at ${school.school}`}
     >
       <p>
-        <b>{school.degree}</b>, {school.fieldOfStudy}, {school.school}, {school.location}
+        <strong>{school.degree}</strong>, <span>{school.fieldOfStudy}</span>, <span>{school.school}</span>, <span>{school.location}</span>
       </p>
     </div>
   );

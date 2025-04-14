@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, type ReactElement } from 'react';
 import { ContactInfo } from '../../types/resume';
 
 interface ContactSectionProps {
@@ -12,7 +12,7 @@ interface ContactSectionProps {
  * @param onContactClick - Handler for contact form interaction
  * @returns A section containing contact information and links
  */
-const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps): React.ReactElement => {
+const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps): ReactElement => {
   return (
     <section 
       id="contact" 
