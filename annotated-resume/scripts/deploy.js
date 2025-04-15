@@ -32,27 +32,6 @@ async function deployToFTP(host, user, password) {
       }
     });
 
-    // Create directory path one level at a time
-    async function createDirectoryPath(path) {
-      if (!path || path === '.') return;
-      
-      const parts = path.split('/');
-      let currentPath = '';
-      
-      for (const part of parts) {
-        if (!part) continue;
-        currentPath = currentPath ? `${currentPath}/${part}` : part;
-        try {
-          await client.ensureDir(currentPath);
-        } catch (error) {
-          if (error.code !== 550) {
-            console.error(`Error creating directory ${currentPath}:`, error);
-            throw error;
-          }
-        }
-      }
-    }
-
     // Upload all files from dist directory recursively
     async function uploadFiles(localPath, remotePath = '') {
       const stats = await stat(localPath);
@@ -68,7 +47,12 @@ async function deployToFTP(host, user, password) {
         // Ensure the remote directory exists
         const remoteDir = dirname(remotePath);
         if (remoteDir !== '.') {
-          await createDirectoryPath(remoteDir);
+          try {
+            await client.ensureDir(remoteDir);
+          } catch (error) {
+            console.error(`Error ensuring directory ${remoteDir}:`, error);
+            throw error;
+          }
         }
 
         console.log(`Uploading ${localPath} to ${remotePath}...`);
