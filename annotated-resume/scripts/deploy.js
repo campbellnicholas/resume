@@ -34,16 +34,13 @@ async function deployToFTP(host, user, password, remoteDir) {
       }
     });
 
-    // Ensure remote directory exists
-    await client.ensureDir(remoteDir);
-
     // Upload all files from dist directory recursively
     async function uploadDirectory(localPath, remotePath) {
       const stats = await stat(localPath);
       
       if (stats.isDirectory()) {
-        // Convert path separators to forward slashes for FTP
-        const ftpPath = remotePath.split(sep).join('/');
+        // Convert path separators to forward slashes for FTP and remove leading slash
+        const ftpPath = remotePath.split(sep).join('/').replace(/^\//, '');
         
         try {
           // Try to create directory
@@ -62,8 +59,8 @@ async function deployToFTP(host, user, password, remoteDir) {
           throw error;
         }
       } else {
-        // Convert path separators to forward slashes for FTP
-        const ftpPath = remotePath.split(sep).join('/');
+        // Convert path separators to forward slashes for FTP and remove leading slash
+        const ftpPath = remotePath.split(sep).join('/').replace(/^\//, '');
         console.log(`Uploading ${localPath} to ${ftpPath}...`);
         
         try {
@@ -77,7 +74,7 @@ async function deployToFTP(host, user, password, remoteDir) {
       }
     }
 
-    await uploadDirectory(localDir, remoteDir);
+    await uploadDirectory(localDir, '');
     console.log('Deployment completed successfully!');
   } catch (error) {
     console.error('Deployment failed:', error);
@@ -91,7 +88,6 @@ async function deployToFTP(host, user, password, remoteDir) {
 const host = process.env.FTP_HOST;
 const user = process.env.FTP_USER;
 const password = process.env.FTP_PASSWORD;
-const remoteDir = process.env.FTP_REMOTE_DIR || '/';
 
 // Validate required environment variables
 if (!host || !user || !password) {
@@ -100,4 +96,4 @@ if (!host || !user || !password) {
 }
 
 // Run deployment
-deployToFTP(host, user, password, remoteDir); 
+deployToFTP(host, user, password, ''); 
