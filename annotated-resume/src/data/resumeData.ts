@@ -124,12 +124,13 @@ Some helpful approximate mapping from <a href="https://www.levels.fyi/?compare=G
 
 |Company|SE1|SE2|Senior|Staff|
 |---|---|---|---|---|
-|Google|L3/SWEII|L4/SWEIII|L4/SWEIII|L5/Senior|
-|DoorDash|E3|E4|E4|E5|
 |Airbnb|G7/Engineer|G8/Engineer|G9/Senior|G9/Senior|
-|Microsoft|SDE 59/60|SDE2 61/62|Senior 63|Senior 64|
 |Apple|ICT2/Jr|ICT3/SE|ICT4/Senior|ICT4/Senior|
+|DoorDash|E3|E4|E4|E5|
+|Google|L3/SWEII|L4/SWEIII|L4/SWEIII|L5/Senior|
+|Microsoft|SDE 59/60|SDE2 61/62|Senior 63|Senior 64|
 |Netflix|L3/Engineer|L4/Engineer II|L5/Senior|L5/Senior|
+|Uber|3/SE1|4/SE2|5a/Senior|5a/Senior|
 
 PS: I sometimes have this written in other versions of my resume as "Staff, Senior, and more junior engineers." It's not my favorite way to describe the hierarchy since it muddles distinct positions so I'm opting for just being more explicit if a little wordy.
 `,
@@ -247,7 +248,16 @@ So I teamed up with another engineering manager/tech lead to create a framework 
               text: 'Assisted in front end initiatives for customer-facing platforms, including the responsive website and HTML emails.'
             },
             {
-              text: 'Updated Magento 1.9 templates and created new modules using Sass and vanilla JavaScript for new initiatives.'
+              text: 'Updated Magento 1.9 templates and created new modules using Sass and vanilla JavaScript for new initiatives.',
+              annotations: [{
+                id: createID('cuyana-magento'),
+                title: 'Magento',
+                content: `## Yes, I have Magento experience.
+I have Magento experience from TOMS, Cuyana, and Beautycounter. I know some people love it and it's a great tool for e-commerce to get up and running without ceding control like you might with Shopify or having to build from scratch. I do rationally understand that. Please don't contact me about Magento jobs.`,
+                linkedText: 'Magento 1.9'
+
+              }
+            ],
             },
             {
               text: 'Assisted in marketing initiatives (creating landing pages and emails).'
