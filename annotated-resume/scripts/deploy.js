@@ -1,5 +1,5 @@
 import { createReadStream } from 'fs';
-import { join, sep } from 'path';
+import { join, dirname } from 'path';
 import { Client } from 'basic-ftp';
 import { readdir, stat } from 'fs/promises';
 
@@ -44,6 +44,19 @@ async function deployToFTP(host, user, password) {
           await uploadFiles(nextLocalPath, nextRemotePath);
         }
       } else {
+        // Ensure the remote directory exists
+        const remoteDir = dirname(remotePath);
+        if (remoteDir !== '.') {
+          try {
+            await client.ensureDir(remoteDir);
+          } catch (error) {
+            if (error.code !== 550) {
+              console.error(`Error creating directory ${remoteDir}:`, error);
+              throw error;
+            }
+          }
+        }
+
         console.log(`Uploading ${localPath} to ${remotePath}...`);
         try {
           await client.uploadFrom(localPath, remotePath);
