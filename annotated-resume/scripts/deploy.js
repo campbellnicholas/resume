@@ -44,18 +44,36 @@ async function deployToFTP(host, user, password, remoteDir) {
       if (stats.isDirectory()) {
         // Convert path separators to forward slashes for FTP
         const ftpPath = remotePath.split(sep).join('/');
-        await client.ensureDir(ftpPath);
-        const files = await readdir(localPath);
-        for (const file of files) {
-          const nextLocalPath = join(localPath, file);
-          const nextRemotePath = join(remotePath, file);
-          await uploadDirectory(nextLocalPath, nextRemotePath);
+        
+        try {
+          // Try to create directory
+          await client.ensureDir(ftpPath);
+          // Small delay to ensure directory is created
+          await new Promise(resolve => setTimeout(resolve, 100));
+          
+          const files = await readdir(localPath);
+          for (const file of files) {
+            const nextLocalPath = join(localPath, file);
+            const nextRemotePath = join(remotePath, file);
+            await uploadDirectory(nextLocalPath, nextRemotePath);
+          }
+        } catch (error) {
+          console.error(`Error creating directory ${ftpPath}:`, error);
+          throw error;
         }
       } else {
         // Convert path separators to forward slashes for FTP
         const ftpPath = remotePath.split(sep).join('/');
         console.log(`Uploading ${localPath} to ${ftpPath}...`);
-        await client.uploadFrom(localPath, ftpPath);
+        
+        try {
+          await client.uploadFrom(localPath, ftpPath);
+          // Small delay between file uploads
+          await new Promise(resolve => setTimeout(resolve, 100));
+        } catch (error) {
+          console.error(`Error uploading file ${localPath}:`, error);
+          throw error;
+        }
       }
     }
 
