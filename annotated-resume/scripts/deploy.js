@@ -28,7 +28,10 @@ async function deployToFTP(host, user, password, remoteDir) {
       host,
       user,
       password,
-      secure: true
+      secure: true,
+      secureOptions: {
+        rejectUnauthorized: false
+      }
     });
 
     // Ensure remote directory exists
@@ -53,15 +56,17 @@ async function deployToFTP(host, user, password, remoteDir) {
   }
 }
 
-// Get credentials from environment variables
+// Get environment variables
 const host = process.env.FTP_HOST;
 const user = process.env.FTP_USER;
 const password = process.env.FTP_PASSWORD;
 const remoteDir = process.env.FTP_REMOTE_DIR || '/';
 
+// Validate required environment variables
 if (!host || !user || !password) {
-  console.error('Missing FTP credentials. Please set FTP_HOST, FTP_USER, and FTP_PASSWORD environment variables.');
+  console.error('Error: FTP_HOST, FTP_USER, and FTP_PASSWORD environment variables are required');
   process.exit(1);
 }
 
+// Run deployment
 deployToFTP(host, user, password, remoteDir); 
