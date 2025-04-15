@@ -45,11 +45,11 @@ async function deployToFTP(host, user, password, remoteDir) {
         try {
           // Create directory if it doesn't exist
           try {
-            await client.mkdir(ftpPath);
-          } catch (mkdirError) {
+            await client.ensureDir(ftpPath);
+          } catch (ensureDirError) {
             // Ignore error if directory already exists
-            if (mkdirError.code !== 550) {
-              throw mkdirError;
+            if (ensureDirError.code !== 550) {
+              throw ensureDirError;
             }
           }
           
