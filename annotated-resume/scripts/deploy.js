@@ -1,5 +1,5 @@
 import { createReadStream } from 'fs';
-import { join } from 'path';
+import { join, sep } from 'path';
 import { Client } from 'basic-ftp';
 import { readdir, stat } from 'fs/promises';
 
@@ -42,7 +42,9 @@ async function deployToFTP(host, user, password, remoteDir) {
       const stats = await stat(localPath);
       
       if (stats.isDirectory()) {
-        await client.ensureDir(remotePath);
+        // Convert path separators to forward slashes for FTP
+        const ftpPath = remotePath.split(sep).join('/');
+        await client.ensureDir(ftpPath);
         const files = await readdir(localPath);
         for (const file of files) {
           const nextLocalPath = join(localPath, file);
@@ -50,8 +52,10 @@ async function deployToFTP(host, user, password, remoteDir) {
           await uploadDirectory(nextLocalPath, nextRemotePath);
         }
       } else {
-        console.log(`Uploading ${localPath}...`);
-        await client.uploadFrom(localPath, remotePath);
+        // Convert path separators to forward slashes for FTP
+        const ftpPath = remotePath.split(sep).join('/');
+        console.log(`Uploading ${localPath} to ${ftpPath}...`);
+        await client.uploadFrom(localPath, ftpPath);
       }
     }
 
