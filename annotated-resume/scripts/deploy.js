@@ -8,11 +8,9 @@ import { readdir, stat } from 'fs/promises';
  * @param {string} host - FTP server host
  * @param {string} user - FTP username
  * @param {string} password - FTP password
- * @param {string} remoteDir - Remote directory to upload to
  */
-async function deployToFTP(host, user, password, remoteDir) {
+async function deployToFTP(host, user, password) {
   const client = new Client();
-  // Ensure we're in the annotated-resume directory
   const localDir = join(process.cwd(), 'dist');
   const currentDir = process.cwd();
 
@@ -35,47 +33,20 @@ async function deployToFTP(host, user, password, remoteDir) {
     });
 
     // Upload all files from dist directory recursively
-    async function uploadDirectory(localPath, remotePath) {
+    async function uploadFiles(localPath, remotePath = '') {
       const stats = await stat(localPath);
       
       if (stats.isDirectory()) {
-        // Convert path separators to forward slashes for FTP and remove leading slash
-        const ftpPath = remotePath.split(sep).join('/').replace(/^\//, '');
-        
-        try {
-          // Create directory if it doesn't exist
-          try {
-            await client.ensureDir(ftpPath);
-          } catch (ensureDirError) {
-            // Ignore error if directory already exists
-            if (ensureDirError.code !== 550) {
-              throw ensureDirError;
-            }
-          }
-          
-          // Change to the directory
-          await client.cd(ftpPath);
-          
-          const files = await readdir(localPath);
-          for (const file of files) {
-            const nextLocalPath = join(localPath, file);
-            const nextRemotePath = join(remotePath, file);
-            await uploadDirectory(nextLocalPath, nextRemotePath);
-          }
-          
-          // Go back to parent directory
-          await client.cd('..');
-        } catch (error) {
-          console.error(`Error handling directory ${ftpPath}:`, error);
-          throw error;
+        const files = await readdir(localPath);
+        for (const file of files) {
+          const nextLocalPath = join(localPath, file);
+          const nextRemotePath = remotePath ? `${remotePath}/${file}` : file;
+          await uploadFiles(nextLocalPath, nextRemotePath);
         }
       } else {
-        // Convert path separators to forward slashes for FTP and remove leading slash
-        const ftpPath = remotePath.split(sep).join('/').replace(/^\//, '');
-        console.log(`Uploading ${localPath} to ${ftpPath}...`);
-        
+        console.log(`Uploading ${localPath} to ${remotePath}...`);
         try {
-          await client.uploadFrom(localPath, ftpPath);
+          await client.uploadFrom(localPath, remotePath);
           // Small delay between file uploads
           await new Promise(resolve => setTimeout(resolve, 100));
         } catch (error) {
@@ -85,7 +56,7 @@ async function deployToFTP(host, user, password, remoteDir) {
       }
     }
 
-    await uploadDirectory(localDir, '');
+    await uploadFiles(localDir);
     console.log('Deployment completed successfully!');
   } catch (error) {
     console.error('Deployment failed:', error);
@@ -107,4 +78,4 @@ if (!host || !user || !password) {
 }
 
 // Run deployment
-deployToFTP(host, user, password, ''); 
+deployToFTP(host, user, password); 
