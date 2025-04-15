@@ -92,7 +92,16 @@ Yeah! We dropped the number of contacts to customer service for missed deliverie
               }]
             },
             {
-              text: 'Pushed iterative development for existing features around enhanced order transparency for consumers (example: added transparency for bundled orders, which reduced delivery estimate contacts by 20%, saving $1M annually) and merchants (example: automated workflow to dispute attribution charges).'
+              text: 'Pushed iterative development for existing features around enhanced order transparency for consumers (example: added transparency for bundled orders, which reduced delivery estimate contacts by 20%, saving $1M annually) and merchants (example: automated workflow to dispute attribution charges).',
+              annotations: [{
+                id: createID('grubhub-iterative-development'),
+                title: '"iterative development"',
+                content: `## Iterative means data-driven through testing
+Iterative at the surface is just a way to describe pushing out smaller updates to a feature in an effort to improve it in tangible, easier-to-deliver chunks. It's the best way to do software. Honestly, the other ways to do software are the devil's work. But inherent in that is that you can also test and measure smaller updates to make sure you're on the right track. Have a North Star, build toward the North Star, realize that the North Star is acutally in a slightly different place in the sky.
+
+You'll see littered down below experience with A/B testing. At Cuyana, this was Optimizely. At Beautycounter, we were at the forefront of using Optimizely Full Stack. And at Grubhub, this was using Taplytics. A/B testing is an important part of building an application that people like and isn't just based on the whims of people that aren't necessarily the target users. The methodology needs to make sure what we're testing is actually important, also, and what is something that is just going to be table stakes (like, if it fails, are we really going to dump it?). Working with Product and stakeholders to get to the right MVP and then knowing what the value is in testing it (what do we measure?) is part of the engineering manager's job or at least part of their influence.`,
+                linkedText: 'iterative development'
+              }]
             },
             {
               text: 'Implemented a standardized design document process, fostering clearer communication and collaboration, and optimized the release process, saving on delivery timeline overages by 25%.',
