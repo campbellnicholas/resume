@@ -43,10 +43,18 @@ async function deployToFTP(host, user, password, remoteDir) {
         const ftpPath = remotePath.split(sep).join('/').replace(/^\//, '');
         
         try {
-          // Try to create directory
-          await client.ensureDir(ftpPath);
-          // Small delay to ensure directory is created
-          await new Promise(resolve => setTimeout(resolve, 100));
+          // Create directory if it doesn't exist
+          try {
+            await client.mkdir(ftpPath);
+          } catch (mkdirError) {
+            // Ignore error if directory already exists
+            if (mkdirError.code !== 550) {
+              throw mkdirError;
+            }
+          }
+          
+          // Change to the directory
+          await client.cd(ftpPath);
           
           const files = await readdir(localPath);
           for (const file of files) {
@@ -54,8 +62,11 @@ async function deployToFTP(host, user, password, remoteDir) {
             const nextRemotePath = join(remotePath, file);
             await uploadDirectory(nextLocalPath, nextRemotePath);
           }
+          
+          // Go back to parent directory
+          await client.cd('..');
         } catch (error) {
-          console.error(`Error creating directory ${ftpPath}:`, error);
+          console.error(`Error handling directory ${ftpPath}:`, error);
           throw error;
         }
       } else {
