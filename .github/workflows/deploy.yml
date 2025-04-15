@@ -24,11 +24,14 @@ jobs:
       run: npm ci
     
     - name: Build
+      working-directory: annotated-resume
       run: npm run build
     
     - name: Deploy to FTP
-      run: npm run deploy
-      env:
-        FTP_HOST: ${{ secrets.FTP_HOST }}
-        FTP_USER: ${{ secrets.FTP_USER }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} 
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: annotated-resume/dist/
+        server-dir: / 
