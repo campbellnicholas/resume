@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { join } from 'path';
 import { Client } from 'basic-ftp';
-import { readdir } from 'fs/promises';
+import { readdir, stat } from 'fs/promises';
 
 /**
  * Deploys the public directory to an FTP server
@@ -37,16 +37,25 @@ async function deployToFTP(host, user, password, remoteDir) {
     // Ensure remote directory exists
     await client.ensureDir(remoteDir);
 
-    // Upload all files from dist directory
-    const files = await readdir(localDir);
-    for (const file of files) {
-      const localPath = join(localDir, file);
-      const remotePath = join(remoteDir, file);
+    // Upload all files from dist directory recursively
+    async function uploadDirectory(localPath, remotePath) {
+      const stats = await stat(localPath);
       
-      console.log(`Uploading ${file}...`);
-      await client.uploadFrom(localPath, remotePath);
+      if (stats.isDirectory()) {
+        await client.ensureDir(remotePath);
+        const files = await readdir(localPath);
+        for (const file of files) {
+          const nextLocalPath = join(localPath, file);
+          const nextRemotePath = join(remotePath, file);
+          await uploadDirectory(nextLocalPath, nextRemotePath);
+        }
+      } else {
+        console.log(`Uploading ${localPath}...`);
+        await client.uploadFrom(localPath, remotePath);
+      }
     }
 
+    await uploadDirectory(localDir, remoteDir);
     console.log('Deployment completed successfully!');
   } catch (error) {
     console.error('Deployment failed:', error);
