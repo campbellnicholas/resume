@@ -1,0 +1,37 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'resume/annotated-resume/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      working-directory: resume/annotated-resume
+      run: npm ci
+    
+    - name: Build
+      working-directory: resume/annotated-resume
+      run: npm run build
+    
+    - name: Deploy to FTP
+      working-directory: resume/annotated-resume
+      run: npm run deploy
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USER }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }} 

@@ -14,7 +14,8 @@
     "prebuild": "node scripts/copy-assets.js",
     "prestart": "node scripts/copy-assets.js",
     "copy-assets": "node scripts/copy-assets.js",
-    "watch-assets": "nodemon --watch src/assets/images -e webp,jpg,jpeg,png,gif --exec npm run copy-assets"
+    "watch-assets": "nodemon --watch src/assets/images -e webp,jpg,jpeg,png,gif --exec npm run copy-assets",
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "postcss-import": "^16.1.0",
@@ -36,6 +37,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
+    "basic-ftp": "^5.0.5",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
