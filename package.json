@@ -1,8 +1,15 @@
 {
+  "name": "resume",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "vitest": "^1.2.2"
+  },
+  "scripts": {
+    "build": "cd annotated-resume && npm run build",
+    "deploy": "cd annotated-resume && npm run deploy"
   }
 }
