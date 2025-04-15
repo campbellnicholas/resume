@@ -43,7 +43,7 @@ async function deployToFTP(host, user, password) {
         if (!part) continue;
         currentPath = currentPath ? `${currentPath}/${part}` : part;
         try {
-          await client.mkdir(currentPath);
+          await client.ensureDir(currentPath);
         } catch (error) {
           if (error.code !== 550) {
             console.error(`Error creating directory ${currentPath}:`, error);
