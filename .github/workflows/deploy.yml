@@ -25,6 +25,8 @@ jobs:
     
     - name: Build
       working-directory: annotated-resume
+      env:
+        VITE_FORMSPREE_FORM_ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}
       run: npm run build
     
     - name: Deploy to FTP
