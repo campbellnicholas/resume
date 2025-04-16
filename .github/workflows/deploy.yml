@@ -34,4 +34,4 @@ jobs:
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: annotated-resume/dist/
-        server-dir: / 
+        server-dir: ${{secrets.FTP_REMOTE_DIR}}
