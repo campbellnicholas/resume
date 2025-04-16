@@ -51,6 +51,10 @@ const ThemeToggleComponent = memo((): React.ReactElement => {
         🖨️
       </button>
       
+      <a href="/" className="theme-toggle-button" aria-label="Go home">
+        ↩️
+      </a>
+      
       {isOpen && (
         <div className="theme-dropdown" role="menu">
           {availableThemes.map((themeKey) => (
