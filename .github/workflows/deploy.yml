@@ -22,6 +22,11 @@ jobs:
     - name: Install dependencies
       working-directory: annotated-resume
       run: npm ci
+
+    - name: Debug Form ID
+      run: |
+        echo "Form ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}"
+        echo "Is var defined: ${{ secrets.VITE_FORMSPREE_FORM_ID != '' }}"
     
     - name: Build
       working-directory: annotated-resume
