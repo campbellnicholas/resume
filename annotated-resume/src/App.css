@@ -321,6 +321,12 @@ a:hover {
     border-bottom: none;
   }
 
+  .annotation-linked-text {
+    border-bottom: none;
+    display: inline;
+    color: #000;
+  }
+
   [role="dialog"] {
     display: none !important;
   }
