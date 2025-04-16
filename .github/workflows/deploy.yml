@@ -22,11 +22,6 @@ jobs:
     - name: Install dependencies
       working-directory: annotated-resume
       run: npm ci
-
-    - name: Debug Form ID
-      run: |
-        echo "Form ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}"
-        echo "Is var defined: ${{ secrets.VITE_FORMSPREE_FORM_ID != '' }}"
     
     - name: Build
       working-directory: annotated-resume
@@ -34,7 +29,6 @@ jobs:
         VITE_FORMSPREE_FORM_ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}
       run: |
         echo "VITE_FORMSPREE_FORM_ID=${{ secrets.VITE_FORMSPREE_FORM_ID }}" > .env
-        cat .env
         npm run build
     
     - name: Deploy to FTP
