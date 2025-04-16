@@ -6,6 +6,7 @@
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "vitest": "^1.2.2"
   },
   "scripts": {
