@@ -130,7 +130,7 @@ const ContactFormComponent = ({ isOpen, onClose }: ContactFormProps): React.Reac
     setStatus('submitting');
     
     try {
-      const response = await fetch(`https://formspree.io/f/${process.env.VITE_FORMSPREE_FORM_ID}`, {
+      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -33,7 +33,8 @@ jobs:
       env:
         VITE_FORMSPREE_FORM_ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}
       run: |
-        echo "VITE_FORMSPREE_FORM_ID=${{ secrets.VITE_FORMSPREE_FORM_ID }}" > .env.production
+        echo "VITE_FORMSPREE_FORM_ID=${{ secrets.VITE_FORMSPREE_FORM_ID }}" > .env
+        cat .env
         npm run build
     
     - name: Deploy to FTP
