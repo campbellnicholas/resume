@@ -78,7 +78,7 @@ This is more about the fluctuation of the team members as we assumed and shed re
                 content: `## PIN Verification: What is it?
 You've seen this before, not just in the Grubhub/Seamless app but other apps where handshakes (metaphorical or literal) help to thwart ne'er-do-wells and to avoid well-meaning mistakes. The problem was that food-eaters wanted to eat their food but couldn't find it even though it'd been marked as delivered. So we added a process for verifying that the food-eater and the deliverer were both at the right place, right time, and the delivery was in tact.
 
-![Food Bandit Thwarted!](./assets/images/grubhub-pin-verification.webp)
+![Food Bandit Thwarted!](./assets/grubhub-pin-verification.webp)
 
 ### What was your part?
 Thanks so much for asking. Our team was responsible for showing the food-eater the PIN in the post purchase/order tracking screen. We decoupled it from the rest of the PIN generation process which made it a lot easier to: (1) roll out indpendently and (2) allow us finish very quickly with limited complexity. We also added PIN updates to food-eater notifications, which we were also responsible for, and into order details to make sure it was in as many places as possible.
@@ -185,7 +185,7 @@ I like to focus growing engineers for their careers. This isn't IBM in the '50s;
                 content: `## So dozens means more than just these four?
 Yeah, many more. As noted elsewhere, the frontends team was in charge of every consumer-facing interface except for the checkout flow (and even so, this team worked on elements in checkout, too). So things like Beautycounter Live (live video streams from the Abbot Kinney store in Venice, CA), user-generated content organization, language options and translations, quick add to cart from category pages, and many others that wouldn't fit into 40 words or fewer. I chose these four because they cover some of the basics that the team was in charge of.
 
-![Sampling and Dynamic Widgets!](./assets/images/beautycounter-project-examples.webp)
+![Sampling and Dynamic Widgets!](./assets/beautycounter-project-examples.webp)
 
 __Sampling:__ By purchasing products (or, in some cases, just by being a special type of customer), you could add samples of other products to your cart. So buy some sunscreen, get a free packet of face lotion. The types of samples needed to be: (1) updated by stakeholders easily, (2) added to orders only in certain conditions and (3) sometimes could also be purchased by certain customer types. A lot of business logic went into building this feature and which required a lot of back and forth non-engineer partners (Product and stakeholders alike) to make sure the rules were right and the right samples were available for a given month.
 
