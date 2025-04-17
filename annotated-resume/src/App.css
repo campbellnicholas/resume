@@ -34,6 +34,7 @@
     --error-color: #e57373;
     --link-underline: rgba(21, 93, 252, 0.7); /* tw: blue-600 */
     --link-bg: rgba(81, 162, 255, 0.7); /* tw: blue-400 */
+    --annotated-text-color: #000;
   }
 
   .sepia {
@@ -46,6 +47,7 @@
     --error-color: #b85c5c;
     --link-underline: rgba(146, 64, 14, 1); /* tw: amber-600 */
     --link-bg: rgba(251, 191, 36, 1); /* tw: amber-400 */
+    --annotated-text-color: #000;
   }
 
   .high-contrast {
@@ -58,6 +60,7 @@
     --error-color: #ff0000;
     --link-underline: rgba(21, 93, 252, 0.2); /* tw: blue-600 */
     --link-bg: rgba(81, 162, 255, 0.2); /* tw: blue-400 */
+    --annotated-text-color: #fff;
   }
 }
 
@@ -274,6 +277,9 @@ a:hover {
   border-top: none;
   border-left-width: 2px;
   border-right-width: 2px;
+  color: var(--annotated-text-color);
+  font-weight: bold;
+  text-align: left;
 }
 
 .annotation-linked-text:hover {
@@ -325,6 +331,8 @@ a:hover {
     border-bottom: none;
     display: inline;
     color: #000;
+    font-weight: normal;
+    text-align: center;
   }
 
   [role="dialog"] {

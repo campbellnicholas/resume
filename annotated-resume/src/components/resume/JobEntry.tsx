@@ -17,7 +17,7 @@ const JobEntry = ({ job }: JobEntryProps): React.ReactElement => {
         <h3 className="font-semibold">{job.company}</h3>
         <p className="text-theme-text/80">
           {job.location}
-          {job.remote && <span className="ml-2">(Remote)</span>}
+          {job.remote && <span className="ml-2 isRemote">Remote</span>}
         </p>
       </header>
       <div role="list">
