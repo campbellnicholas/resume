@@ -19,7 +19,7 @@ const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps): 
       aria-label="Contact Information"
       className="mt-8 mb-12 flex align-center justify-center"
     >
-      <ul className="flex gap-4 list-none p-0 inline">
+      <ul className="flex gap-4 list-none p-0 inline max-md:flex-col max-md:gap-2 max-md:text-center">
         <li 
           id="contact-city"
           className="block"

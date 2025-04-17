@@ -5,7 +5,7 @@ import { createID } from '../types/resume';
 export const resumeData: ResumeData = {
   name: 'Nick Campbell',
   contact: {
-    city: 'Los Angeles, CA',
+    city: 'Los Angeles, CA, USA',
     linkedIn: {
       url: 'https://www.linkedin.com/in/campbell-nick/',
       displayText: 'LinkedIn'
