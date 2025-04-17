@@ -11,7 +11,7 @@ export const resumeData: ResumeData = {
       displayText: 'LinkedIn'
     },
     github: {
-      url: 'https://github.com/campbellnicholas/resume/annotated-resume',
+      url: 'https://github.com/campbellnicholas/resume/tree/main/annotated-resume',
       displayText: 'Annotated Resume on Github'
     }
   },
