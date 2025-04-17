@@ -41,6 +41,14 @@ const ContactSection = memo(({ contact, onContactClick }: ContactSectionProps): 
           </a>
         </li>
         <li 
+          id="contact-github"
+          className="inline"
+        >
+          <a href={contact.github.url} target="_blank" rel="noopener noreferrer">
+            {contact.github.displayText}
+          </a>
+        </li>
+        <li 
           id="contact-email"
           className="inline"
         >

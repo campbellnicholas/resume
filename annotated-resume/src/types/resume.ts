@@ -99,6 +99,10 @@ export interface ContactInfo {
     readonly url: string;
     readonly displayText: string;
   };
+  readonly github: {
+    readonly url: string;
+    readonly displayText: string;
+  };
   readonly email?: string;
   readonly phone?: string;
   readonly website?: string;

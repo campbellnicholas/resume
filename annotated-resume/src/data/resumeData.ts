@@ -9,6 +9,10 @@ export const resumeData: ResumeData = {
     linkedIn: {
       url: 'https://www.linkedin.com/in/campbell-nick/',
       displayText: 'LinkedIn'
+    },
+    github: {
+      url: 'https://github.com/campbellnicholas/resume/annotated-resume',
+      displayText: 'Resume Github repo'
     }
   },
   summary: {
