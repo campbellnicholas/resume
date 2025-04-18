@@ -20,7 +20,7 @@ const App = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} ${theme === 'high-contrast' ? 'high-contrast' : ''}`}>
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-end mb-4">
           <ThemeToggle />

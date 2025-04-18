@@ -23,7 +23,7 @@ export const themeRegistry: ThemeRegistry = {
     name: 'Sepia',
     description: 'Warm, eye-friendly theme',
   },
-  highContrast: {
+  'high-contrast': {
     name: 'Contrast',
     description: 'High contrast theme for improved readability',
   },
