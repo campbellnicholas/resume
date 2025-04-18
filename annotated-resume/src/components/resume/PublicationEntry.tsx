@@ -29,7 +29,7 @@ const PublicationEntryComponent = memo(({ publication }: PublicationEntryProps) 
           href={publication.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-theme-hover hover:underline ml-2"
+          className="text-theme-text hover:text-theme-hover transition-colors duration-200 ml-2"
           aria-label={`Read publication: ${publication.title}`}
         >
           (Link)

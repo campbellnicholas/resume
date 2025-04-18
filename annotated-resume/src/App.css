@@ -14,7 +14,7 @@
   :root {
     --text-color: #333;
     --background-color: #fff;
-    --hover-color: rgba(0, 0, 0, 0.5);
+    --hover-color: #666;
     --border-color: #ddd;
     --modal-background: rgba(0, 0, 0, 0.5);
     --success-color: #4caf50;
@@ -27,7 +27,7 @@
   .dark {
     --text-color: #e0e0e0;
     --background-color: #1a1a1a;
-    --hover-color: rgba(255, 255, 255, 0.5);
+    --hover-color: #b3b3b3;
     --border-color: #444;
     --modal-background: rgba(0, 0, 0, 0.8);
     --success-color: #81c784;

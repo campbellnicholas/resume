@@ -51,11 +51,21 @@ const App = () => {
             className="text-left"
           >
             <h2>Work Experience</h2>
-            <div role="list">
+            <ul 
+              role="list"
+              aria-label="List of work experiences"
+              className="list-none p-0 m-0"
+            >
               {resumeData.experience.map((job) => (
-                <JobEntry key={job.id} job={job} />
+                <li 
+                  key={job.id}
+                  role="listitem"
+                  aria-label={`Work experience at ${job.company}`}
+                >
+                  <JobEntry job={job} />
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           <section 
@@ -65,11 +75,21 @@ const App = () => {
             className="text-left"
           >
             <h2>Education</h2>
-            <div role="list">
+            <ul 
+              role="list"
+              aria-label="List of educational institutions"
+              className="list-none p-0 m-0"
+            >
               {resumeData.education.map((school) => (
-                <SchoolEntry key={school.id} school={school} />
+                <li 
+                  key={school.id}
+                  role="listitem"
+                  aria-label={`Education at ${school.school}`}
+                >
+                  <SchoolEntry school={school} />
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           <section 
