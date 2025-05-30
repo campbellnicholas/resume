@@ -21,11 +21,13 @@ export enum PublicationType {
 export enum TechnologyCategory {
   LANGUAGES = 'Languages',
   FRAMEWORKS = 'Frameworks',
+  TECHNOLOGIES = 'Technologies',
   TOOLS = 'Tools',
   PLATFORMS = 'Platforms',
   DATABASES = 'Databases',
   CLOUD = 'Cloud',
-  AI = 'AI Tools'
+  AI = 'AI Tools',
+  PROCESSES = 'Processes'
 }
 
 export enum CompetencyCategory {

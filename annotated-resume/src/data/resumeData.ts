@@ -16,7 +16,7 @@ export const resumeData: ResumeData = {
     }
   },
   summary: {
-    text: 'Engineering manager with extensive experience leading cross-platform development teams in fast-paced e-commerce environments. Proven ability to drive process improvements, foster relationships, and demonstrate empathetic leadership while delivering high-quality software. Skilled in software engineering and dedicated to building inclusive, high-performing teams.',
+    text: 'Accomplished Engineering Manager experienced in leading cross-platform development teams in fast-paced e-commerce environments. Drives process improvements, fosters collaboration, and provides empathetic leadership to consistently deliver superior software. Proven expertise in building and nurturing inclusive, high-performing engineering teams.',
     annotations: [
       {
         id: createID('empathetic-leadership'),
@@ -62,7 +62,7 @@ I've been doing this a long time, I'm good at it, and I'm well-adjusted enough t
           endDate: '03/2025',
           responsibilities: [
             {
-              text: 'Managed a cross-functional engineering team (Android, iOS, Web) of 10-12 engineers in the resiliency and enhancement of the order tracking feature for Grubhub and seamless consumer-facing applications written in Kotlin, Swift, and React/TypeScript.',
+              text: 'Managed a 10 person engineering team (Android, iOS, Web) to improve and maintain order tracking (Kotlin, Swift, React/TypeScript) and order status notifications (email, SMS, push, Live Activities) for Grubhub and Seamless consumer apps.',
               annotations: [{
                 id: createID('grubub-engineer-number'),
                 title: '10-12 engineers',
@@ -75,7 +75,7 @@ This is more about the fluctuation of the team members as we assumed and shed re
               }]
             },
             {
-              text: 'Drove the successful launch of MVPs on many projects including item substitution workflows (reduced order cancellations by 5% and contacts to customer service by 10%) and adding PIN verification (saved $6M annually).',
+              text: 'Spearheaded the successful launch of MVPs on various projects e.g., item substitution workflows (reducing order cancellations by 5% and customer service inquiries by 10%) and implementing PIN verification (saving $6M annually).',
               annotations: [{
                 id: createID('grubhub-pin-verification'),
                 title: 'PIN verification',
@@ -96,7 +96,7 @@ Yeah! We dropped the number of contacts to customer service for missed deliverie
               }]
             },
             {
-              text: 'Pushed iterative development for existing features around enhanced order transparency for consumers (example: added transparency for bundled orders, which reduced delivery estimate contacts by 20%, saving $1M annually) and merchants (example: automated workflow to dispute attribution charges).',
+              text: 'Promoted iterative development for existing features focused on enhanced order clarity for consumers (example: added transparency for bundled orders, which decreased delivery estimate inquiries by 20%, saving $1M annually) and merchants (example: automated process to dispute attribution charges).',
               annotations: [{
                 id: createID('grubhub-iterative-development'),
                 title: '"iterative development"',
@@ -108,10 +108,10 @@ You'll see littered down below experience with A/B testing. At Cuyana, this was 
               }]
             },
             {
-              text: 'Implemented a standardized design document process, fostering clearer communication and collaboration, and optimized the release process, saving on delivery timeline overages by 25%.',
+              text: 'Established a consistent design document process, encouraging clearer communication and collaboration, standardizing design patterns, and streamlining the release procedure which reduced timeline overages and allowed for more consistent releases.',
               annotations: [{
                 id: createID('grubhub-timeline-overages'),
-                title: '"timeline overages by 25%"',
+                title: '"reduced timeline overages"',
                 content: `## What does 'timeline overages by 25%' even mean?
 
 In the aftermath of a long, onorous project, we came together as a team to figure out why it was both long and onorous. We learned that the project exacerbated existing issues: engineers estimating based on optimistic assumptions and things taking longer than they thought; other engineers and teams weren't always on the same page if we needed things from them; and requirements that seemed clear but weren't. We'd been able to limp through smaller work based on our team's great collaborative and communicative environment but this large project really blew those problems up. As large projects are wont to do.
@@ -120,18 +120,19 @@ So I revamped the software development process for our team which required more 
 
 It worked so well, we spread it to other teams in our organization and I wrote documentation for our implementation so that others could contribute. We also had kaizens to continue to improve the process which engineers and partners were very involved in. They resulted in standardizing the amount of detail in the design documents and using Google Docs for the documents rather than Github to allow for more input by non-engineers.
 `,
-                linkedText: 'timeline overages by 25%'
+                linkedText: 'reduced timeline overages'
               }]
             },
-            { text: 'Collaborated with product, design, business insights, and other engineering teams to define roadmaps, coordinate capacity planning, distill engineering needs, and prioritize projects along axes of business growth and engineering excellence.' },
-            { text: 'Supervised a backend microservices engineering team (Java and Kotlin), delivering critical data APIs for customer support agent tools and order tracking frontend features.' },
-            { text: 'Mentored engineers at varied levels (SE1, SE2, Senior, and Staff) on goal-setting against both company directives and individual growth at the company and beyond, leading to promotion tracks.',
+            { text: 'Directed the enhancement of a marketing technology platform, encompassing the implementation of improved source control management, standardized release cycles, establishment of on-call rotations, and advancements in the platform\'s efficiency and reliability, concurrent with the deployment of new features.' },
+            { text: 'Collaborated with product/program managers, design, business insights, and fellow engineering teams to formulate roadmaps, organize capacity planning, and prioritize projects to effectively deliver iterative and testable features based on user demands.' },
+            { text: 'Oversaw a 4 person backend Java/Kotlin engineering team which operated services for vital data APIs for customer support agent tools and order tracking frontend capabilities.' },
+            { text: 'Coached and guided engineers at varying levels (staff, senior, and junior) on goal-setting aligning with both company objectives and individual career development, providing a path to promotion opportunities.',
               annotations: [{
                 id: createID('grubhub-mentoring-levels'),
-                title: '"SE1, SE2, Senior, and Staff"',
-                content: `## Senior and Staff I know. But SE1 and SE2?
+                title: '"staff, senior, and junior"',
+                content: `## Okay, but what do those levels mean for me?
 
-Software Engineer 1 and Software Engineer 2. These don't necessarily map exactly in every company. SE1 at Grubhub was (usually) just above an associate engineer (just out of college or a career change) so your quintessential junior engineer. SE2 is that mid-level engineer transitioning into the independence of a Senior engineer. 
+Industry titles don't necessarily map cleanly for every company. I managed Staff, Senior, Software Engineer 2, and Software Engineer 1 team members. SE1 at Grubhub was (usually) just above an associate engineer (just out of college or a career change) so your quintessential junior engineer. SE2 is that mid-level engineer transitioning into the independence of a Senior engineer. 
 
 Some helpful approximate mapping from <a href="https://www.levels.fyi/?compare=Grubhub,Google,DoorDash,Airbnb,Microsoft&track=Software%20Engineer" target="_blank" rel="noopener">levels.fyi</a>:
 
@@ -145,23 +146,31 @@ Some helpful approximate mapping from <a href="https://www.levels.fyi/?compare=G
 |Netflix|L3/Engineer|L4/Engineer II|L5/Senior|L5/Senior|
 |Uber|3/SE1|4/SE2|5a/Senior|5a/Senior|
 
-PS: I sometimes have this written in other versions of my resume as "Staff, Senior, and more junior engineers." It's not my favorite way to describe the hierarchy since it muddles distinct positions so I'm opting to be more explicit if a little wordy in this version.
+PS: I've vacillated between this wording and spelling out all the levels so it doesn't elide SE2 specifically. I'm going with this for now because it's less wordy. I guess? I may change it later.
 `,
-                linkedText: 'SE1, SE2, Senior, and Staff'
+                linkedText: 'staff, senior, and junior'
               },
               {
                 id: createID('grubhub-growth-beyond'),
-                title: '"growth at the company and beyond"',
-                content: `## Do you want to talk about the "beyond" part?
-I do. Promotion paths are a tangible shorthand for growth. Getting to the next level at company is empirical evidence that you have grown. And it's good. I want engineers to get promoted. There are no losers in that sceenario. But sometimes promotion tracks can be narrowly focused on a company's principles and needs which may or may not translate to the larger industry and personal growth is sacrficed for the company's whims. 
+                title: '"individual career development"',
+                content: `## Is individual career development different from a promotion path?
+I think so! Promotion paths are a tangible shorthand for growth. Getting to the next level at company is empirical evidence that you have grown. And it's good. I want engineers to get promoted. There are no losers in that sceenario. But sometimes promotion tracks can be narrowly focused on a company's principles and needs which may or may not translate to the larger industry and personal growth is sacrficed for the company's whims. 
 
 I like to focus growing engineers for their careers. This isn't IBM in the '50s; engineers are not going to be lifers with a penision. Transition is inevitable so I like to focus on creating good engineering habits for their work/life balance and their continuing education. It's a more holistic approach that keeps the trends of the modern industry in mind.
 `,
-                linkedText: 'growth at the company and beyond'
+                linkedText: 'individual career development'
               }
           ]},
-            { text: 'Engaged in hiring activities, including conducting phone screens, participating in panel interviews (system architecture, coding fundamentals, and behavioral), and contributing to hiring process improvements.' },
-            { text: 'Acted as scrum master and Jira admin for the team in an Agile environment' },
+            { text: 'Contributed to recruitment by conducting screenings and interviews (system architecture, coding, and behavioral) and helped modernize the interview process with AI considerations.' },
+            { text: 'Served as scrum master and Jira administrator for the team in an Agile setting with continuous integration (CI/CD).',
+              annotations: [{
+                id: createID('grubhub-scrum-master'),
+                title: '"CI/CD"',
+                content: `## That parenthetical CI/CD looks weird. Why did you add it?
+That's mostly for the robots. I've worked with a number of CI/CD pipelines (Github Actions, Jenkins, proprietary in-house builds) but not enough for me to add as a bullet. I wanted to note here that we built our development processes around the fact that we have continuous integration which is different than having some DevOps person or all-time release engineer doing the merges for you. My favorite has been a trunk-based development which means that anything an engineer merges can be put to production at anytime. Yes, that can be stressful but also puts a lot of trust in the engineer. We learn really quick how to be safe, engaged, and defensive in our code. Not something you'd be able to do at, say, Boeing but the thought process (investing in engineers to be empowered) is the right tact.`,
+                linkedText: 'CI/CD'
+              }]
+            }
           ]
         }
       ]
@@ -179,7 +188,7 @@ I like to focus growing engineers for their careers. This isn't IBM in the '50s;
           endDate: '09/2021',
           responsibilities: [
             {
-              text: 'Led eight software engineers across two teams in feature development and maintenance of an e-commerce platform: a web team building in React, NodeJS, and GraphQL; and an iOS team building in Swift.'
+              text: 'Led 8 software engineers across two teams in feature development and maintenance of an e-commerce platform: a web team using React, NodeJS, and GraphQL; and an iOS team building in Swift.'
             },
             {
               text: 'Owned shopping funnel and post purchase experience for beautycounter.com and the iOS app and launched dozens of initiatives including sampling, password security, dynamic widgets, and a blog re-platform.',
@@ -215,7 +224,7 @@ So I teamed up with another engineering manager/tech lead to create a framework 
               }]
             },
             {
-              text: 'Created a positive team culture based on psychological safety, peer education, continual improvement, and career advancement and trajectory through coaching and mentoring focused on empathy.'
+              text: 'Based a positive team culture on psychological safety, peer education, continual improvement, and career advancement and trajectory through coaching and mentoring focused on empathy.'
             },
             {
               text: 'Maintained client-side data integrity (Segment, Google Tag Manager, Google Analytics, Mixpanel), post-production monitoring (Ghost Inspector, New Relic Synthetics), and consumer-facing CMS (Contentful).'
@@ -228,10 +237,10 @@ So I teamed up with another engineering manager/tech lead to create a framework 
           endDate: '04/2018',
           responsibilities: [
             {
-              text: 'Created a new interface for checkout flow within the first two months.'
+              text: 'Built a new interface for checkout flow within the first two months.'
             },
             {
-              text: 'Created new features, fixed production issues, and maintained the codebase.'
+              text: 'Engineered new features, fixed production issues, and maintained the codebase.'
             },
             {
               text: 'Set coding paradigms for the platform via code reviews and documentation.'
@@ -258,10 +267,10 @@ So I teamed up with another engineering manager/tech lead to create a framework 
           endDate: '09/2017',
           responsibilities: [
             {
-              text: 'Assisted in front end initiatives for customer-facing platforms, including the responsive website and HTML emails.'
+              text: 'Assisted in front end initiatives for customer-facing platforms, including the responsive website.'
             },
             {
-              text: 'Updated Magento 1.9 templates and created new modules using Sass and vanilla JavaScript for new initiatives.',
+              text: 'Built frontends for new modules in Sass and vanilla JavaScript in Magento 1.9 templates for new initiatives.',
               annotations: [{
                 id: createID('cuyana-magento'),
                 title: 'Magento',
@@ -273,13 +282,13 @@ I have Magento experience from TOMS, Cuyana, and Beautycounter. I know some peop
             ],
             },
             {
-              text: 'Assisted in marketing initiatives (creating landing pages and emails).'
+              text: 'Created interfaces for marketing initiatives (landing pages and emails).'
             },
             {
               text: 'Provided assistance in creating guidelines for processes and workflows.'
             },
             {
-              text: 'Created code for use in Optimizely A/B tests.'
+              text: 'Leveraged Optimizely for A/B tests of product improvements.'
             }
           ]
         }
@@ -309,7 +318,7 @@ I have Magento experience from TOMS, Cuyana, and Beautycounter. I know some peop
               text: 'Developed performance-enhancing strategies for Magento environments.'
             },
             {
-              text: 'As front end SME, participated in design reviews, architectural assessments, code reviews, and level-of-effort estimations in an Agile environment.'
+              text: 'Participated in design reviews, architectural assessments, code reviews, and LOE as front-end SME'
             }
           ]
         }
@@ -355,7 +364,11 @@ This kind of is a concise version of the entire resume without the specific but,
       }]
     },
     {
-      name: 'Coaching & Mentorship',
+      name: 'Coaching/Mentorship',
+      category: CompetencyCategory.LEADERSHIP
+    }, 
+    {
+      name: 'Feature rollout',
       category: CompetencyCategory.LEADERSHIP
     },
     {
@@ -417,21 +430,21 @@ You can see from my Education section that I don't have a Science degree but an 
       category: TechnologyCategory.LANGUAGES,
     },
     {
-      name: 'React, Contentful, GitHub Actions, Jenkins',
-      category: TechnologyCategory.FRAMEWORKS,
+      name: 'React, Headless CMS, A/B Testing, GitHub Actions, Jenkins, AWS, GCP',
+      category: TechnologyCategory.TECHNOLOGIES,
     },
     {
-      name: 'AWS, GCP',
-      category: TechnologyCategory.CLOUD,
-    },
-    {
-      name: 'Figma, Adobe Creative Suite',
+      name: 'Jira, Asana, Contentful, Optimizely, LaunchDarkly, Figma, Adobe Creative Suite',
       category: TechnologyCategory.TOOLS,
     },
     {
       name: 'Cursor, Gemini, Claude, Firefly',
       category: TechnologyCategory.AI,
-    }
+    },
+    {
+      name: 'Agile, Scrum, Design Documents, DevEx, DORA, SPACE',
+      category: TechnologyCategory.PROCESSES,
+    },
   ],
   publications: [
     {
