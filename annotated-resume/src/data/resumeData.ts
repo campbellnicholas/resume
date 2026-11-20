@@ -50,6 +50,24 @@ I've been doing this a long time, I'm good at it, and I'm well-adjusted enough t
   },
   experience: [
     {
+      id: createID('oura'),
+      company: 'Oura',
+      location: 'Los Angeles, CA',
+      remote: true,
+      positions: [
+        {
+          title: 'Engineering Manager',
+          startDate: '08/2025',
+          endDate: 'Present',
+          responsibilities: [
+            {
+              text: 'Managed a 5 person engineering team (all frontend Web) that maintains the top-of-funnel experience for ouraring.com, including all content except Cart, Checkout, Blog, and the post-purchase experience.'
+            }
+          ]
+        }
+      ]
+    },
+    {
       id: createID('grubhub'),
       company: 'Grubhub',
       location: 'Chicago, IL',
