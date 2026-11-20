@@ -6,6 +6,9 @@ Any suggestions are welcome in the issues.
 
 ## Changelog
 
+### 2026 11 19
+* Redeployed after the resume directory was removed from the server
+
 ### 2025 04 18
 * Enhanced accessibility with improved ARIA parent-child relationships
 * Updated theme colors to meet WCAG AA contrast requirements
